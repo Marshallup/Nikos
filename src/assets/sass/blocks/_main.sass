@@ -1,0 +1,69 @@
+.main
+    position: relative
+    z-index: 1
+    background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
+    color: $MainColor
+    padding: 24px 0 46px 0
+    animation-name: animate
+    animation-duration: 15s
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    @keyframes animate
+        0%,100%
+            background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
+        33.3%
+            background: url('https://cdn.pixabay.com/photo/2020/04/05/08/43/wood-anemone-5005120_960_720.jpg') center center/cover no-repeat
+        66.6%
+            background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
+    &::before
+        content: ''
+        position: absolute
+        z-index: -1
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .48)
+    .header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0 110px
+        .logo
+            opacity: .8
+        .menu
+            width: 500px
+            display: flex
+            justify-content: space-between
+            a
+                font-size: 14px
+                letter-spacing: 1px
+        a
+            color: $MainColor
+            text-decoration: none
+            text-transform: uppercase
+            font-size: 18px
+    &__title
+        text-align: center
+        margin-top: 130px
+        margin-bottom: 0
+        text-transform: uppercase
+        font-size: 60px
+        letter-spacing: 5px
+        font-weight: normal
+    &__subtitle
+        margin-top: 30px
+        line-height: 35px
+        text-align: center
+    &__points
+        margin-top: 200px
+        display: flex
+        justify-content: center
+        .point
+            width: 16px
+            height: 6px
+            background: url('/assets/img/icons/main_point.svg') center center/cover no-repeat
+            &:nth-child(1)
+                background: url('/assets/img/icons/main_point-fill.svg') center center/cover no-repeat
+            &:nth-child(2)
+                margin: 0 18px
