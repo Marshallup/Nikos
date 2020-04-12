@@ -94,11 +94,11 @@ function css() {
 
 function js() {
     return src(path.src.js, {base: './src/assets/js/'})
+        .pipe(plumber())
+        .pipe(rigger())
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(plumber())
-        .pipe(rigger())
         .pipe(gulp.dest(path.build.js))
         .pipe(uglify())
         .pipe(rename({

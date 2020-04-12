@@ -1,29 +1,31 @@
 .main
     position: relative
     z-index: 1
-    background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
+    background-position: center center
+    background-attachment: fixed
+    background-size: cover
     color: $MainColor
     padding: 24px 0 46px 0
-    animation-name: animate
-    animation-duration: 15s
-    animation-timing-function: linear
-    animation-iteration-count: infinite
-    @keyframes animate
-        0%,100%
-            background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
-        33.3%
-            background: url('https://cdn.pixabay.com/photo/2020/04/05/08/43/wood-anemone-5005120_960_720.jpg') center center/cover no-repeat
-        66.6%
-            background: url('/assets/img/bg-main.jpg') center center/cover no-repeat
-    &::before
-        content: ''
-        position: absolute
+    .fullBackground
         z-index: -1
+        background-position: center center
+        background-repeat: no-repeat
+        background-attachment: fixed
+        background-size: cover
+        position: absolute
         top: 0
         left: 0
         width: 100%
         height: 100%
-        background-color: rgba(0, 0, 0, .48)
+        &::before
+            content: ''
+            position: absolute
+            z-index: -1
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background-color: rgba(0, 0, 0, .48)
     .header
         display: flex
         align-items: center
