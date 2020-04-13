@@ -1,18 +1,67 @@
 .button
+    position: relative
     display: block
     width: 234px
     height: 57px
     background-color: rgba(255, 255, 255,0 )
     text-transform: uppercase
-    border: 1px solid rgba(141, 106, 39, 0.5)
+    border: none
     color: #8D6A27
     letter-spacing: 2px
     cursor: pointer
+    &::after
+        transition: all .6s
+        content: ''
+        top: 3px
+        right: 4px
+        border: 1px solid rgba(141, 106, 39, 0.5)
+        position: absolute
+        width: 232px
+        height: 55px
+    &:hover::after
+        top: 0
+        right: 0px
+    &::before
+        transition: all .6s
+        content: ''
+        top: -6px
+        right: -5px
+        border: 1px solid rgba(141, 106, 39, 0.5)
+        position: absolute
+        width: 232px
+        height: 55px
+    &:hover::before
+        top: 0
+        right: 0
     &__callus
     &__order
         margin-top: 16px
         width: 292px
         height: 58px
+        &::after
+            transition: all .6s
+            content: ''
+            top: 3px
+            right: 4px
+            border: 1px solid rgba(141, 106, 39, 0.5)
+            position: absolute
+            width: 292px
+            height: 58px
+        &:hover::after
+            top: 0
+            right: 0
+        &::before
+            transition: all .6s
+            content: ''
+            top: -6px
+            right: -5px
+            border: 1px solid rgba(141, 106, 39, 0.5)
+            position: absolute
+            width: 292px
+            height: 58px
+        &:hover::before
+            top: 0
+            right: 0
     &__main
         width: 173px
         height: 56px
@@ -20,5 +69,17 @@
         margin: 0 auto
         margin-top: 70px
         border: none
+        &::after
+            width: 173px
+            height: 56px
+            top: 2px
+            right: 2px
+            border: 1px solid #FFFFFF
+        &::before
+            width: 173px
+            height: 56px
+            top: -5px
+            right: -4px
+            border: 1px solid #FFFFFF
     &__footer
         margin-top: 57px

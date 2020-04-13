@@ -18,21 +18,94 @@
 }
 
 .button {
+    position: relative;
     display: block;
     width: 234px;
     height: 57px;
     background-color: rgba(255, 255, 255, 0);
     text-transform: uppercase;
-    border: 1px solid rgba(141, 106, 39, 0.5);
+    border: none;
     color: #8D6A27;
     letter-spacing: 2px;
     cursor: pointer;
+}
+
+.button::after {
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+    content: '';
+    top: 3px;
+    right: 4px;
+    border: 1px solid rgba(141, 106, 39, 0.5);
+    position: absolute;
+    width: 232px;
+    height: 55px;
+}
+
+.button:hover::after {
+    top: 0;
+    right: 0px;
+}
+
+.button::before {
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+    content: '';
+    top: -6px;
+    right: -5px;
+    border: 1px solid rgba(141, 106, 39, 0.5);
+    position: absolute;
+    width: 232px;
+    height: 55px;
+}
+
+.button:hover::before {
+    top: 0;
+    right: 0;
 }
 
 .button__order {
     margin-top: 16px;
     width: 292px;
     height: 58px;
+}
+
+.button__order::after {
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+    content: '';
+    top: 3px;
+    right: 4px;
+    border: 1px solid rgba(141, 106, 39, 0.5);
+    position: absolute;
+    width: 292px;
+    height: 58px;
+}
+
+.button__order:hover::after {
+    top: 0;
+    right: 0;
+}
+
+.button__order::before {
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+    content: '';
+    top: -6px;
+    right: -5px;
+    border: 1px solid rgba(141, 106, 39, 0.5);
+    position: absolute;
+    width: 292px;
+    height: 58px;
+}
+
+.button__order:hover::before {
+    top: 0;
+    right: 0;
 }
 
 .button__main {
@@ -42,6 +115,22 @@
     margin: 0 auto;
     margin-top: 70px;
     border: none;
+}
+
+.button__main::after {
+    width: 173px;
+    height: 56px;
+    top: 2px;
+    right: 2px;
+    border: 1px solid #FFFFFF;
+}
+
+.button__main::before {
+    width: 173px;
+    height: 56px;
+    top: -5px;
+    right: -4px;
+    border: 1px solid #FFFFFF;
 }
 
 .button__footer {
@@ -103,7 +192,7 @@
 }
 
 .main .header .menu {
-    width: 500px;
+    width: 45%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -174,6 +263,7 @@
 }
 
 .company__subtitle {
+    font-family: Open Sans;
     text-align: center;
     font-size: 18px;
     font-weight: 300;
@@ -206,12 +296,39 @@
 
 .gallery .types .type {
     font-size: 17px;
+    text-align: center;
     text-transform: uppercase;
     color: #000000;
+    -webkit-flex-basis: 15%;
+    -ms-flex-preferred-size: 15%;
+    flex-basis: 15%;
 }
 
-.gallery .types .type:nth-child(2) {
-    padding: 0 79px;
+.gallery .types .type span {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery .types .type span::before {
+    content: '';
+    width: 0;
+    height: 0;
+    left: 0;
+    bottom: -10px;
+}
+
+.gallery .types .type span:hover::before {
+    content: '';
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    margin-left: 10%;
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    left: 0;
+    bottom: -10px;
+    background-color: #8D6A27;
 }
 
 .services {
@@ -252,6 +369,7 @@
 }
 
 .services__wrap .block__text {
+    font-family: Open Sans;
     margin-top: 22px;
     line-height: 25px;
 }
@@ -507,6 +625,8 @@
     -webkit-flex-basis: 20%;
     -ms-flex-preferred-size: 20%;
     flex-basis: 20%;
+    min-width: 220px;
+    max-width: 300px;
 }
 
 .contacts__block span {
@@ -525,6 +645,7 @@
 }
 
 .footer__main {
+    padding-bottom: 36px;
     border-top: 1px solid rgba(141, 106, 39, 0.36);
     border-bottom: 1px solid rgba(141, 106, 39, 0.36);
     display: -webkit-box;
@@ -635,9 +756,9 @@
 }
 
 .footer .footer__button_block {
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
+    -webkit-flex-basis: 30%;
+    -ms-flex-preferred-size: 30%;
+    flex-basis: 30%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -646,4 +767,22 @@
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+}
+
+.footer__down {
+    margin: 24px 0 29px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    color: #C4B18C;
 }

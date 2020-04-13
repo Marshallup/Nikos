@@ -5,7 +5,28 @@
         justify-content: center
         .type
             font-size: 17px
+            text-align: center
             text-transform: uppercase
             color: $colorText
-            &:nth-child(2)
-                padding: 0 79px
+            flex-basis: 15%
+            span
+                position: relative
+                cursor: pointer
+                &::before
+                    content: ''
+                    width: 0
+                    height: 0
+                    left: 0
+                    bottom: -10px
+                &:hover::before
+                    content: ''
+                    transition: all .5s
+                    margin-left: 10%
+                    position: absolute
+                    width: 80%
+                    height: 1px
+                    left: 0
+                    bottom: -10px
+                    background-color:  #8D6A27
+            // &:nth-child(2)
+            //     padding: 0 79px
