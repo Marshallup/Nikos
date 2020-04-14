@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <script src="assets/libraries/jquery.min.js"></script>
+    <script src="assets/js/jquery.inputmask.js"></script>
+    <script src="assets/libraries/slick.min.js"></script>
     <title>HomePage</title>
 </head><body>
 
@@ -16,25 +18,25 @@
         <header class="header">
             <img src="assets/img/icons/logo.png" alt="logo" class="logo">
             <nav class="menu">
-                <a href="#" class="menu__link">компания</a>
-                <a href="#" class="menu__link">фотогалерея</a>
-                <a href="#" class="menu__link">услуги</a>
-                <a href="#" class="menu__link">Заказ</a>
+                <a href="#company" class="menu__link">компания</a>
+                <a href="#gallery" class="menu__link">фотогалерея</a>
+                <a href="#services" class="menu__link">услуги</a>
+                <a href="#order" class="menu__link">Заказ</a>
             </nav>
-            <a href="#" class="phone">8 (913) 011-75-99</a>
+            <a href="tel:+79130117599" class="phone">8 (913) 011-75-99</a>
         </header>
         <h1 class="main__title">Кованные изделия</h1>
         <h2 class="main__subtitle">Обогащайте свой интерьер с помощью  уникальных <br>
             изделий художесвтенной ковки</h2>
         <img src="assets/img/icons/line.svg" alt="line" class="line">
-        <button class="button button__main">Заказать</button>
+        <button class="button button__main button__order">Заказать</button>
         <div class="main__points">
             <div class="point"></div>
             <div class="point"></div>
             <div class="point"></div>
         </div>
     </div>
-</section><section class="company">
+</section><section id="company" class="company">
     <div class="container">
         <h2 class="title">компания</h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
@@ -47,17 +49,36 @@
         </div>
     </div>
 </section><section class="gallery">
-    <div class="container">
-        <h2 class="title">фотогалерея</h2>
+    <div id="gallery_cont" class="container">
+        <h2 id="gallery" class="title">фотогалерея</h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
         <div class="types">
-            <div class="type"><span>Ограждения</span></div>
-            <div class="type"><span>Предметы интерьера</span></div>
-            <div class="type"><span>паковки</span></div>
+            <div class="type"><span data-type="1" class="active__type">Ограждения</span></div>
+            <div class="type"><span data-type="2" class="type__name active__type">Предметы интерьера</span></div>
+            <div class="type"><span data-type="3" class="type__name active__type">паковки</span></div>
         </div>
-        <div class="slider"></div>
+        <div id="slider_one" data-type="1" class="slider slider-one">
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
+        </div>
+        <div data-type="2" class="slider slider-two">
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
+        </div>
+        <div data-type="3" class="slider slider-three">
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
+        </div>
+        <div class="numbers">
+            <span class="start">1</span>
+                /
+            <span class="end">3</span>
+        </div>
     </div>
-</section><section class="services">
+</section><section id="services" class="services">
     <div class="container">
         <h2 class="title">услуги</h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
@@ -97,40 +118,44 @@
         художественной ковки </h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
         <div class="video__block"><video src=""></video></div>
-</section><section class="callus">
+</section><section id="callus" class="callus">
     <h2 class="title">Свяжитесь с нами</h2>
     <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
     <div class="subtitle">
         Остались вопросы? Звоните нам прямо сейчас или закажите <br> 
         обратный звонок
     </div>
-    <form class="callus__form" name="callus" action="" method="post">
-        <input name="name" placeholder="Имя" type="text">
-        <input name="phone" placeholder="Телефон" type="text">
+    <form class="callus__form" name="callus" method="post">
+        <input name="up" value="Позвонить" type="hidden">
+        <input name="Имя" id="name_callus" placeholder="Имя" type="text">
+        <input name="Телефон" id="phone_callus" placeholder="Телефон" type="text">
         <button class="button button__callus">Заказать звонок</button>
+        <div class="nValidCall"></div>
     </form>
-</section><section class="order">
+</section><section id="order" class="order">
     <h2 class="title">готовы сделать заказ?</h2>
     <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
     <div class="subtitle">Заполните форму заказа и мы свяжемся с вами <br>
         для его дальнейшего обсуждения</div>
-    <form action="" method="post" class="order__form">
+    <form action="mail.php" method="post" class="order__form">
+        <input name="up" value="Заказ" type="hidden">
         <div class="inputs">
-            <input name="name" placeholder="Имя" type="text">
-            <input name="email" placeholder="E-mail" type="text">
-            <input name="phone" placeholder="Телефон" type="text">
+            <input name="Имя" id="name_order" placeholder="Имя" type="text">
+            <input name="Почта" id="mail_order" placeholder="E-mail" type="text">
+            <input name="Телефон" id="phone_order" placeholder="Телефон" type="text">
         </div>
         <div class="submit">
-            <textarea name="message" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
-            <button class="button button__order">Оформить заказ</button>
+            <textarea name="Сообщение" id="message_order" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
+            <button type="submit" class="button button__order">Оформить заказ</button>
         </div>
+        <div class="nValid"></div>
     </form>
 </section><section class="contacts">
     <h2 class="title">контакты</h2>
     <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
     <div class="contacts__wrap">
-            <div class="contacts__block"><span>Телефон</span><a class="data" href="#">8 (913) 011-75-99</a></div>
-            <div class="contacts__block"><span>E-mail</span><a class="data" href="#">71083@list.ru.</a></div>
+            <div class="contacts__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
+            <div class="contacts__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru</a></div>
             <div class="contacts__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
                 улица Кирова 46</span></div>
     </div>
@@ -140,15 +165,15 @@
             <img src="assets/img/icons/footer/footer__logo.png" alt="logo">
         </div>
         <nav class="footer__menu">
-            <a href="#" class="footer__menu_link">компания</a>
-            <a href="#" class="footer__menu_link">фотогалерея</a>
-            <a href="#" class="footer__menu_link">услуги</a>
+            <a href="#company" class="footer__menu_link">компания</a>
+            <a href="#gallery" class="footer__menu_link">фотогалерея</a>
+            <a href="#services" class="footer__menu_link">услуги</a>
             <a href="#" class="footer__menu_link">награды</a>
-            <a href="#" class="footer__menu_link">Заказ</a>
+            <a href="#order" class="footer__menu_link">Заказ</a>
         </nav>
         <div class="footer__wrap">
-            <div class="footer__block"><span>Телефон</span><a class="data" href="#">8 (913) 011-75-99</a></div>
-            <div class="footer__block"><span>E-mail</span><a class="data" href="#">71083@list.ru.</a></div>
+            <div class="footer__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
+            <div class="footer__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru.</a></div>
             <div class="footer__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
                 улица Кирова 46</span></div>
         </div>
@@ -166,6 +191,8 @@
         2020 © Никас <br>
         Все права защищены
     </div>
-</section><script src="assets/js/main.min.js"></script>
+</section><div class="befSend">Заявка обрабатывается...</div>
+<!-- <script src="assets/libraries/slick.min.js"></script> -->
+<script src="assets/js/main.min.js"></script>
 </body>
 </html>

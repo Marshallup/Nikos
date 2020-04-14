@@ -1,17 +1,19 @@
-<section class="order">
+<section id="order" class="order">
     <h2 class="title">готовы сделать заказ?</h2>
     <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
     <div class="subtitle">Заполните форму заказа и мы свяжемся с вами <br>
         для его дальнейшего обсуждения</div>
-    <form action="" method="post" class="order__form">
+    <form action="mail.php" method="post" class="order__form">
+        <input name="up" value="Заказ" type="hidden">
         <div class="inputs">
-            <input name="name" placeholder="Имя" type="text">
-            <input name="email" placeholder="E-mail" type="text">
-            <input name="phone" placeholder="Телефон" type="text">
+            <input name="Имя" id="name_order" placeholder="Имя" type="text">
+            <input name="Почта" id="mail_order" placeholder="E-mail" type="text">
+            <input name="Телефон" id="phone_order" placeholder="Телефон" type="text">
         </div>
         <div class="submit">
-            <textarea name="message" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
-            <button class="button button__order">Оформить заказ</button>
+            <textarea name="Сообщение" id="message_order" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
+            <button type="submit" class="button button__order">Оформить заказ</button>
         </div>
+        <div class="nValid"></div>
     </form>
 </section>

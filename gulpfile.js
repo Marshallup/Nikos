@@ -118,15 +118,23 @@ function images() {
 function clean() {
     return del(path.clean);
 }
+function php() {
+    return src("src/*.php")
+        .pipe(dest("dist/"))
+        .pipe(src('src/phpmailer/*.php'))
+        .pipe(dest("dist/phpmailer/"))
+}
+
 
 function watchFiles() {
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.images], images);
+    gulp.watch(["src/*.php"], php)
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, mainfiles));
+const build = gulp.series(clean, gulp.parallel(html, css, js, php, images, mainfiles));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
@@ -134,6 +142,7 @@ exports.css = css;
 exports.images = images;
 exports.mainfiles = mainfiles;
 exports.clean = clean;
+exports.php = php;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

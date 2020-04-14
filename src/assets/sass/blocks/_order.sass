@@ -1,5 +1,6 @@
 .order
     &__form
+        position: relative
         margin-top: 47px
         display: flex
         justify-content: center
@@ -27,7 +28,16 @@
             padding-left: 17px
             border: 1px solid rgba(141, 106, 39, 0.5)
             background-color: rgba(255, 255, 255,0 )
+            resize: none
             @include placeholder
                 color: #8D6A27
                 font-weight: 300
+.nValid
+    position: absolute
+    font-size: 18px
+    text-transform: uppercase
+    color: red
+    font-weight: 600
+    bottom: -50px
+
                 

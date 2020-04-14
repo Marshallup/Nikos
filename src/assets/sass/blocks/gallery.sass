@@ -1,4 +1,5 @@
 .gallery
+    margin-bottom: 130px
     height: 770px
     .types
         display: flex
@@ -12,6 +13,7 @@
             span
                 position: relative
                 cursor: pointer
+            .type__name
                 &::before
                     content: ''
                     width: 0
@@ -27,6 +29,61 @@
                     height: 1px
                     left: 0
                     bottom: -10px
-                    background-color:  #8D6A27
-            // &:nth-child(2)
-            //     padding: 0 79px
+                    background-color:  #8d6a27
+    .active__type
+        &::before
+            content: ''
+            transition: all .5s
+            margin-left: 10%
+            position: absolute
+            width: 80%
+            height: 1px
+            left: 0
+            bottom: -10px
+            background-color:  #8d6a27
+    .slider
+        position: relative
+        margin-top: 38px
+        &-one
+            // display: block
+        &-two
+            // display: none
+        &-three
+            // display: none
+    .slick-list
+        overflow: hidden
+    .slick-track
+        width: 100vw
+        display: flex
+        justify-content: center
+    .slider__item
+        display: flex
+        justify-content: center
+        outline: none
+        img
+            width: 800px
+            height: 410px
+    .slick-arrow
+        position: absolute
+        z-index: 1001
+        top: 50%
+        transform: translateY(-50%)
+        border: none
+        font-size: 0
+        width: 30px
+        height: 30px
+        background-color: #fff
+        outline: none
+    .slick-next
+        right: 180px
+        background: url('/assets/img/icons/arrow-right.png') center center/cover no-repeat
+    .slick-prev
+        left: 180px
+        background: url('/assets/img/icons/arrow-left.png') center center/cover no-repeat
+.numbers
+    margin-top: 30px
+    font-weight: normal
+    color: #8D6A27
+    font-size: 17px
+    display: flex
+    justify-content: center

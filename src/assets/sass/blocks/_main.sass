@@ -31,15 +31,22 @@
         align-items: center
         justify-content: space-between
         padding: 0 110px
+        @media screen and ( max-width: 944px )
+            padding: 0 40px
         .logo
             opacity: .8
         .menu
             width: 45%
             display: flex
             justify-content: space-between
+            @media screen and ( max-width: 944px )
+                width: 342px
             a
                 font-size: 14px
                 letter-spacing: 1px
+                @media screen and ( max-width: 944px )
+                    margin-right: 10px
+                    
         a
             color: $MainColor
             text-decoration: none

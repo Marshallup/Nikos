@@ -2,7 +2,16 @@
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', serif
+    outline: none
+    &:active
+        outline: 0
+        outline-offset: 0
+    &:focus
+        outline: 0
+        outline-offset: 0
+body
+    position: relative
 .container
     max-width: 1366px
     margin: 0 auto
@@ -10,6 +19,27 @@
     display: block
     margin: 30px auto
     margin-top: 25px
+.befSend
+    z-index: 100
+    border: 1px solid black
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    width: 300px
+    height: 200px
+    color: white
+    display: none
+    &::before
+        content: ''
+        z-index: -1
+        position: fixed
+        width: 100vw
+        height: 100vh
+        background-color: rgba(0,0,0,.7)
 @import 'vars'
 @import 'mixins'
 @import 'buttons'

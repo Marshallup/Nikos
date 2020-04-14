@@ -28,8 +28,121 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 }(jQuery);
 $(document).ready(function () {
+  $('#phone_order').inputmask({
+    "mask": "+ 7(999) 999-9999"
+  });
+  $('#phone_callus').inputmask({
+    "mask": "+ 7(999) 999-9999"
+  });
+  var nv = $('.nValid');
+  nv.hide(); //E-mail Ajax Send
+
+  $(".button__order").click(function () {
+    //Change
+    var name = $('#name_order').val();
+    var mail = $('#mail_order').val();
+    var phone = $('#phone_order').val();
+    var message = $('#message_order').val();
+    var val = '';
+
+    if (name == '' || name.length < 3) {
+      val = 'Имя должно содержать более 3 символов';
+    } else if (mail == '' || mail.split('@').length - 1 == 0 || mail.split('.').length - 1 == 0) {
+      val = 'E-mail должен содержать "@" и "."';
+    } else if (phone == '') {} else if (message == '' || message.length < 10) {
+      val = 'Сообщение должно быть больше 10 символов';
+    }
+
+    if (val != '') {
+      nv.html(val + '<div class="nValid"></div>');
+      nv.show();
+      return false;
+    }
+
+    var th = $('.order__form');
+    nv.hide();
+    $.ajax({
+      type: "POST",
+      url: "mail.php",
+      //Change
+      cache: false,
+      beforeSend: function beforeSend() {
+        $('.befSend').css("display", "flex");
+      },
+      data: th.serialize()
+    }).done(function () {
+      $('.befSend').text('Выполнено!');
+      setTimeout(function () {
+        $('.befSend').css("display", "none");
+      }, 300);
+      setTimeout(function () {
+        // Done Functions
+        th.trigger("reset");
+      }, 500);
+    });
+    return false;
+  }); // $(".order__form").submit(function() { //Change
+  // 	var th = $(this);
+  // 	$.ajax({
+  // 		type: "POST",
+  // 		url: "mail.php", //Change
+  // 		data: th.serialize()
+  // 	}).done(function() {
+  // 		alert("Спасибо ! Мы свяжемся с вами в ближайшее время !");
+  // 		setTimeout(function() {
+  // 			// Done Functions
+  // 			th.trigger("reset");
+  // 		}, 1000);
+  // 	});
+  // 	return false;
+  // });
+  // let nv = $('.nValid');
+  // nv.hide()
+  //E-mail Ajax Send
+
+  var ns = $('.nValidCall');
+  ns.hide();
+  $(".button__callus").click(function () {
+    //Change
+    var name = $('#name_callus').val();
+    var phone = $('#phone_callus').val();
+    var val = '';
+
+    if (name == '' || name.length < 3) {
+      val = 'Имя должно содержать более 3 символов';
+    } else if (phone == '') {
+      val = 'Телефон';
+    }
+
+    if (val != '') {
+      ns.html(val + '<div class="nValidCall"></div>');
+      ns.show();
+      return false;
+    }
+
+    var th = $('.callus__form');
+    ns.hide();
+    $.ajax({
+      type: "POST",
+      url: "mail.php",
+      //Change
+      cache: false,
+      beforeSend: function beforeSend() {// $('.befSend').css("display","flex");
+      },
+      data: th.serialize()
+    }).done(function () {
+      // $('.befSend').text('Выполнено!')
+      setTimeout(function () {// $('.befSend').css("display","none");
+      }, 300);
+      setTimeout(function () {
+        // Done Functions
+        th.trigger("reset");
+      }, 500);
+    });
+    return false;
+  });
   $('.fullBackground').fullClip({
-    images: ['assets/img/bg-main.jpg', 'https://cdn.pixabay.com/photo/2020/04/07/17/01/chicks-5014152_960_720.jpg', 'assets/img/bg-main.jpg'],
+    images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main.jpg'],
     transitionTime: 2000,
     wait: 5000
   });
@@ -57,4 +170,162 @@ $(document).ready(function () {
       i = 0;
     }
   }, 5000);
+  $(".menu").on("click", "a", function (event) {
+    event.preventDefault();
+    var id = $(this).attr('href');
+    var top = $(id).offset().top;
+
+    if (id == '#gallery') {
+      top = $(id).offset().top + 120;
+    }
+
+    $('body,html').animate({
+      scrollTop: top
+    }, 1500);
+  });
+  $(".footer__menu").on("click", "a", function (event) {
+    event.preventDefault();
+    var id = $(this).attr('href');
+    var top = $(id).offset().top;
+
+    if (id == '#gallery') {
+      top = $(id).offset().top + 120;
+    }
+
+    $('body,html').animate({
+      scrollTop: top
+    }, 1500);
+  });
+  $(".button__main").on("click", function () {
+    var top = $("#order").offset().top;
+    $('body,html').animate({
+      scrollTop: top
+    }, 1500);
+  });
+  $(".button__footer").on("click", function () {
+    var top = $("#callus").offset().top;
+    $('body,html').animate({
+      scrollTop: top
+    }, 1500);
+  });
+  var types = document.querySelector('.types');
+  var spans = types.querySelectorAll('span');
+  var sliders = document.querySelectorAll('.slider');
+  setTimeout(function () {
+    var _iterator2 = _createForOfIteratorHelper(sliders),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var slider = _step2.value;
+        slider.style.display = 'none';
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+
+    slider_one.style.display = 'block';
+  }, 100);
+
+  types.onclick = function (e) {
+    if (e.target.nodeName != 'SPAN') return;
+    var type = e.target;
+
+    var _iterator3 = _createForOfIteratorHelper(spans),
+        _step3;
+
+    try {
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var _type = _step3.value;
+
+        _type.classList.remove('active__type');
+
+        if (_type.classList != 'type__name') {
+          _type.classList.add('type__name');
+        }
+      }
+    } catch (err) {
+      _iterator3.e(err);
+    } finally {
+      _iterator3.f();
+    }
+
+    type.classList.remove('type__name');
+    type.classList.add('active__type');
+
+    var _iterator4 = _createForOfIteratorHelper(sliders),
+        _step4;
+
+    try {
+      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+        var slider = _step4.value;
+        slider.style.display = 'none';
+
+        if (type.dataset.type == slider.dataset.type) {
+          slider.style.display = 'block';
+        }
+      }
+    } catch (err) {
+      _iterator4.e(err);
+    } finally {
+      _iterator4.f();
+    }
+  };
+
+  function count() {
+    var div = document.createElement('div');
+    var span = document.createElement('span');
+    var span2 = document.createElement('span');
+    span.textContent = 1;
+    span.insertAdjacentText('beforeend', '/');
+    span2.textContent = 3;
+    div.classList.add('numbers');
+    span.classList.add('start');
+    span2.classList.add('end');
+    div.prepend(span);
+    div.append(span2);
+    gallery_cont.append(div);
+  }
+
+  var arrows = document.querySelectorAll('.slick-arrow');
+  var span_start = document.querySelector('.start');
+  var j = 1;
+  var j2 = 1;
+  var j3 = 1;
+
+  var _iterator5 = _createForOfIteratorHelper(arrows),
+      _step5;
+
+  try {
+    for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+      var arrow = _step5.value;
+
+      arrow.onclick = function (e) {
+        if (e.target.classList.contains('slick-prev')) {
+          j--;
+
+          if (j < 1) {
+            j = 3;
+          }
+
+          span_start.textContent = j;
+        } else if (e.target.classList.contains('slick-next')) {
+          j++;
+
+          if (j > 3) {
+            j = 1;
+          }
+
+          span_start.textContent = j;
+        }
+      };
+    }
+  } catch (err) {
+    _iterator5.e(err);
+  } finally {
+    _iterator5.f();
+  }
 });
+$('.slider').slick();
