@@ -10,14 +10,20 @@
         flex-basis: 20%
         min-width: 220px
         max-width: 300px
+        @media screen and ( max-width: 769px)
+            min-width: 180px
         span
             font-size: 20px
             font-weight: normal
             text-transform: uppercase
             color: $colorText
+            @media screen and ( max-width: 769px)
+                font-size: 16px
         .data
             margin-left: 19px
             font-size: 16px
             text-transform: none
             text-decoration: none
             color: $colorText
+            @media screen and ( max-width: 769px)
+                font-size: 13px

@@ -81,24 +81,7 @@ $(document).ready(function () {
       }, 500);
     });
     return false;
-  }); // $(".order__form").submit(function() { //Change
-  // 	var th = $(this);
-  // 	$.ajax({
-  // 		type: "POST",
-  // 		url: "mail.php", //Change
-  // 		data: th.serialize()
-  // 	}).done(function() {
-  // 		alert("Спасибо ! Мы свяжемся с вами в ближайшее время !");
-  // 		setTimeout(function() {
-  // 			// Done Functions
-  // 			th.trigger("reset");
-  // 		}, 1000);
-  // 	});
-  // 	return false;
-  // });
-  // let nv = $('.nValid');
-  // nv.hide()
-  //E-mail Ajax Send
+  }); //E-mail Ajax Send
 
   var ns = $('.nValidCall');
   ns.hide();
@@ -142,7 +125,7 @@ $(document).ready(function () {
     return false;
   });
   $('.fullBackground').fullClip({
-    images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main.jpg'],
+    images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main2.jpg'],
     transitionTime: 2000,
     wait: 5000
   });
@@ -211,34 +194,17 @@ $(document).ready(function () {
   var types = document.querySelector('.types');
   var spans = types.querySelectorAll('span');
   var sliders = document.querySelectorAll('.slider');
-  setTimeout(function () {
-    var _iterator2 = _createForOfIteratorHelper(sliders),
-        _step2;
-
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var slider = _step2.value;
-        slider.style.display = 'none';
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
-
-    slider_one.style.display = 'block';
-  }, 100);
 
   types.onclick = function (e) {
     if (e.target.nodeName != 'SPAN') return;
     var type = e.target;
 
-    var _iterator3 = _createForOfIteratorHelper(spans),
-        _step3;
+    var _iterator2 = _createForOfIteratorHelper(spans),
+        _step2;
 
     try {
-      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-        var _type = _step3.value;
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var _type = _step2.value;
 
         _type.classList.remove('active__type');
 
@@ -247,20 +213,20 @@ $(document).ready(function () {
         }
       }
     } catch (err) {
-      _iterator3.e(err);
+      _iterator2.e(err);
     } finally {
-      _iterator3.f();
+      _iterator2.f();
     }
 
     type.classList.remove('type__name');
     type.classList.add('active__type');
 
-    var _iterator4 = _createForOfIteratorHelper(sliders),
-        _step4;
+    var _iterator3 = _createForOfIteratorHelper(sliders),
+        _step3;
 
     try {
-      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-        var slider = _step4.value;
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var slider = _step3.value;
         slider.style.display = 'none';
 
         if (type.dataset.type == slider.dataset.type) {
@@ -268,9 +234,9 @@ $(document).ready(function () {
         }
       }
     } catch (err) {
-      _iterator4.e(err);
+      _iterator3.e(err);
     } finally {
-      _iterator4.f();
+      _iterator3.f();
     }
   };
 
@@ -295,12 +261,12 @@ $(document).ready(function () {
   var j2 = 1;
   var j3 = 1;
 
-  var _iterator5 = _createForOfIteratorHelper(arrows),
-      _step5;
+  var _iterator4 = _createForOfIteratorHelper(arrows),
+      _step4;
 
   try {
-    for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-      var arrow = _step5.value;
+    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+      var arrow = _step4.value;
 
       arrow.onclick = function (e) {
         if (e.target.classList.contains('slick-prev')) {
@@ -323,9 +289,20 @@ $(document).ready(function () {
       };
     }
   } catch (err) {
-    _iterator5.e(err);
+    _iterator4.e(err);
   } finally {
-    _iterator5.f();
+    _iterator4.f();
   }
 });
-$('.slider').slick();
+$('.slider').slick({
+  fade: true,
+  waitForAnimate: false
+});
+
+window.onload = function () {
+  NProgress.done();
+  $('.white').remove();
+  $('body').css('overflow', 'auto');
+  $('.slider-two').hide();
+  $('.slider-three').hide();
+};

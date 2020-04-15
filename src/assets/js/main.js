@@ -48,24 +48,6 @@ $(document).ready(function() {
 		});
 		return false;
 	});
-    // $(".order__form").submit(function() { //Change
-	// 	var th = $(this);
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: "mail.php", //Change
-	// 		data: th.serialize()
-	// 	}).done(function() {
-	// 		alert("Спасибо ! Мы свяжемся с вами в ближайшее время !");
-	// 		setTimeout(function() {
-	// 			// Done Functions
-	// 			th.trigger("reset");
-	// 		}, 1000);
-	// 	});
-	// 	return false;
-    // });
-    
-    // let nv = $('.nValid');
-    // nv.hide()
     //E-mail Ajax Send
     let ns = $('.nValidCall');
     ns.hide();
@@ -107,7 +89,7 @@ $(document).ready(function() {
 	});
 
     $('.fullBackground').fullClip({
-        images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main.jpg'],
+        images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main2.jpg'],
         transitionTime: 2000,
         wait: 5000
     })
@@ -156,12 +138,6 @@ $(document).ready(function() {
     let spans = types.querySelectorAll('span');
     let sliders = document.querySelectorAll('.slider');
 
-        setTimeout(function() {
-            for ( let slider of sliders) {
-                slider.style.display = 'none'
-            }
-            slider_one.style.display = 'block'
-        },100)
         
     types.onclick = (e) => {
         if ( e.target.nodeName != 'SPAN' ) return
@@ -223,4 +199,14 @@ $(document).ready(function() {
 
 
 });
-$('.slider').slick();
+$('.slider').slick({
+    fade: true,
+    waitForAnimate: false
+});
+window.onload = function() {
+    NProgress.done();
+    $('.white').remove()
+    $('body').css('overflow', 'auto')
+    $('.slider-two').hide()
+    $('.slider-three').hide()
+};

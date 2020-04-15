@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/libraries/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libraries/nprogress.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/libraries/animate.min.css">
     <script src="assets/libraries/jquery.min.js"></script>
-    <script src="assets/js/jquery.inputmask.js"></script>
-    <script src="assets/libraries/slick.min.js"></script>
+    <script src="assets/libraries/wow.min.js"></script>
+    <script>
+        new WOW().init()
+    </script>
     <title>HomePage</title>
 </head><body>
+<div class="white"></div>
 
 <section class="main">
     <div class="fullBackground"></div>
     <div class="container">
-        <header class="header">
+        <header class="header wow fadeInUpBig slower">
             <img src="assets/img/icons/logo.png" alt="logo" class="logo">
-            <nav class="menu">
+            <div class="burger"><span></span></div>
+            <nav class="menu wow fadeInUpBig">
                 <a href="#company" class="menu__link">компания</a>
                 <a href="#gallery" class="menu__link">фотогалерея</a>
                 <a href="#services" class="menu__link">услуги</a>
@@ -25,11 +31,11 @@
             </nav>
             <a href="tel:+79130117599" class="phone">8 (913) 011-75-99</a>
         </header>
-        <h1 class="main__title">Кованные изделия</h1>
-        <h2 class="main__subtitle">Обогащайте свой интерьер с помощью  уникальных <br>
+        <h1 class="main__title wow fadeInUpBig slower">Кованные изделия</h1>
+        <h2 class="main__subtitle wow fadeInUpBig slower">Обогащайте свой интерьер с помощью  уникальных <br>
             изделий художесвтенной ковки</h2>
-        <img src="assets/img/icons/line.svg" alt="line" class="line">
-        <button class="button button__main button__order">Заказать</button>
+        <img src="assets/img/icons/line.svg" alt="line" class="line main__line wow fadeInUpBig slower">
+        <button class="button button__main wow fadeInUpBig slower">Заказать</button>
         <div class="main__points">
             <div class="point"></div>
             <div class="point"></div>
@@ -38,9 +44,9 @@
     </div>
 </section><section id="company" class="company">
     <div class="container">
-        <h2 class="title">компания</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
-        <div class="company__subtitle"> 
+        <h2 class="title wow fadeInLeft slow">компания</h2>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInRight slow">
+        <div class="company__subtitle wow fadeInDown slow"> 
             Компания «Никас-дизайн» специализируется на горячей художественной <br>
             ковке металла. Наш мастер-кузнец воплотит в жизнь любые ваши творческие <br>
             идеи. Каждая работа  — это неповоторимое произведение искусства. Наши <br>
@@ -50,14 +56,14 @@
     </div>
 </section><section class="gallery">
     <div id="gallery_cont" class="container">
-        <h2 id="gallery" class="title">фотогалерея</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
-        <div class="types">
+        <h2 id="gallery" class="title wow fadeInUpBig slow">фотогалерея</h2>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUpBig slow">
+        <div class="types wow fadeInUpBig slow">
             <div class="type"><span data-type="1" class="active__type">Ограждения</span></div>
             <div class="type"><span data-type="2" class="type__name active__type">Предметы интерьера</span></div>
             <div class="type"><span data-type="3" class="type__name active__type">паковки</span></div>
         </div>
-        <div id="slider_one" data-type="1" class="slider slider-one">
+        <div id="slider_one" data-type="1" class="slider slider-one wow fadeInUpBig slow">
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
@@ -68,9 +74,27 @@
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
         </div>
         <div data-type="3" class="slider slider-three">
-            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
-            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
-            <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka0.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka1.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka2.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka3.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka4.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka5.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka6.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka7.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka8.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka9.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka10.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka11.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka12.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka13.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka14.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka15.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka16.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka17.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka18.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka19.jpg" alt="p"></div>
+            <div class="slider__item"><img src="assets/img/slider/pakovka20.jpg" alt="p"></div>
         </div>
         <div class="numbers">
             <span class="start">1</span>
@@ -80,17 +104,17 @@
     </div>
 </section><section id="services" class="services">
     <div class="container">
-        <h2 class="title">услуги</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
+        <h2 class="title wow fadeInUpBig slow">услуги</h2>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
         <div class="services__wrap">
             <div class="block">
-                <div class="block__about">
+                <div class="block__about wow fadeInUpBig slow">
                     <div class="block__title">кованные <br>
                         ограждения </div>
                     <div class="block__text"> Бесплато создаем проект ограждения <br> 
                         по замерам ваших пролетов. В нашей <br> галерее нахотяся почти готовые <br> решения ограждений </div>
                 </div>
-                <div class="block__about">
+                <div class="block__about wow fadeInDownBig slow">
                     <div class="block__title">Кованные <br>
                         предметы интерьера</div>
                     <div class="block__text">Мы изготавливаем для вас <br> 
@@ -98,7 +122,7 @@
                         которые придают благородсвто <br>
                         и обогащают  обстановку</div>
                 </div>
-                <div class="block__about">
+                <div class="block__about block__about_pakovki wow fadeInRightBig slow">
                     <div class="block__title">Кованные <br>
                         паковки</div>
                     <div class="block__text">Наш мастер изготавливает <br>
@@ -109,23 +133,23 @@
             </div>
         </div>
     </div>
-</section><section class="decor">
+</section><section class="decor wow fadeInUp slow">
     <img src="assets/img/decor.png" alt="decor" class="decor__img">
     <h2 class="title decor__title">КОВАНЫЕ ИЗДЕЛИЯ — СТИЛЬ И БЛАГОРОДСТВО, <br>
         НЕПОДВЛАСТНЫЕ ВРЕМЕНИ.</h2>
 </section><section class="video">
-    <h2 class="title">Процесс <br>
+    <h2 class="title wow fadeInUpBig slow">Процесс <br>
         художественной ковки </h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
-        <div class="video__block"><video src=""></video></div>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
+        <div class="video__block wow jackInTheBox"><iframe width="560" height="315" src="https://www.youtube.com/embed/Gbz6OYqlyYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 </section><section id="callus" class="callus">
-    <h2 class="title">Свяжитесь с нами</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
-    <div class="subtitle">
+    <h2 class="title wow fadeInUpBig">Свяжитесь с нами</h2>
+    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig">
+    <div class="subtitle wow rotateInUpRight">
         Остались вопросы? Звоните нам прямо сейчас или закажите <br> 
         обратный звонок
     </div>
-    <form class="callus__form" name="callus" method="post">
+    <form class="callus__form wow flipInY" name="callus" method="post">
         <input name="up" value="Позвонить" type="hidden">
         <input name="Имя" id="name_callus" placeholder="Имя" type="text">
         <input name="Телефон" id="phone_callus" placeholder="Телефон" type="text">
@@ -133,11 +157,11 @@
         <div class="nValidCall"></div>
     </form>
 </section><section id="order" class="order">
-    <h2 class="title">готовы сделать заказ?</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
-    <div class="subtitle">Заполните форму заказа и мы свяжемся с вами <br>
+    <h2 class="title wow fadeInUpBig slow">готовы сделать заказ?</h2>
+    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
+    <div class="subtitle wow fadeInRight slow">Заполните форму заказа и мы свяжемся с вами <br>
         для его дальнейшего обсуждения</div>
-    <form action="mail.php" method="post" class="order__form">
+    <form action="mail.php" method="post" class="order__form wow fadeInRight slow">
         <input name="up" value="Заказ" type="hidden">
         <div class="inputs">
             <input name="Имя" id="name_order" placeholder="Имя" type="text">
@@ -151,48 +175,55 @@
         <div class="nValid"></div>
     </form>
 </section><section class="contacts">
-    <h2 class="title">контакты</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line">
+    <h2 class="title wow fadeInUpBig slow">контакты</h2>
+    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
     <div class="contacts__wrap">
-            <div class="contacts__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
-            <div class="contacts__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru</a></div>
-            <div class="contacts__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
+            <div class="contacts__block wow fadeInLeftBig slow"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
+            <div class="contacts__block wow fadeInUpBig slow"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru</a></div>
+            <div class="contacts__block wow fadeInRightBig slow"><span>Адрес</span><span class="data">г. Новосибирск, <br>
                 улица Кирова 46</span></div>
     </div>
-</section><section class="footer">
-    <div class="footer__main">
-        <div class="footer__logo">
-            <img src="assets/img/icons/footer/footer__logo.png" alt="logo">
+</section><div class="footer">
+    <div class="container">
+        <div class="footer__main wow fadeInLeft slow">
+            <div class="footer__logo">
+                <img src="assets/img/icons/footer/footer__logo.png" alt="logo">
+            </div>
+            <nav class="footer__menu">
+                <a href="#company" class="footer__menu_link">компания</a>
+                <a href="#gallery" class="footer__menu_link">фотогалерея</a>
+                <a href="#services" class="footer__menu_link">услуги</a>
+                <a href="#order" class="footer__menu_link">Заказ</a>
+            </nav>
+            <div class="footer__wrap">
+                <div class="footer__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
+                <div class="footer__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru.</a></div>
+                <div class="footer__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
+                    улица Кирова 46</span></div>
+            </div>
+            <div class="footer__cards">
+                <div class="footer__cards_img"><img src="assets/img/icons/footer/paypal.png" alt="paypal"></div>
+                <div class="footer__cards_img"><img src="assets/img/icons/footer/visa.png" alt="visa"></div>
+                <div class="footer__cards_img"><img src="assets/img/icons/footer/mscard.png" alt="mscard"></div>
+                <div class="footer__cards_img"><img src="assets/img/icons/footer/mir.png" alt="mir"></div>
+            </div>
+            <div class="footer__button_block">
+                <button class="button button__footer">Заказать звонок</button>
+            </div>
         </div>
-        <nav class="footer__menu">
-            <a href="#company" class="footer__menu_link">компания</a>
-            <a href="#gallery" class="footer__menu_link">фотогалерея</a>
-            <a href="#services" class="footer__menu_link">услуги</a>
-            <a href="#" class="footer__menu_link">награды</a>
-            <a href="#order" class="footer__menu_link">Заказ</a>
-        </nav>
-        <div class="footer__wrap">
-            <div class="footer__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
-            <div class="footer__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru.</a></div>
-            <div class="footer__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
-                улица Кирова 46</span></div>
+        <div class="footer__down wow fadeInRight slow">
+            2020 © Никас <br>
+            Все права защищены
         </div>
-        <div class="footer__cards">
-            <div class="footer__cards_img"><img src="assets/img/icons/footer/paypal.png" alt="paypal"></div>
-            <div class="footer__cards_img"><img src="assets/img/icons/footer/visa.png" alt="visa"></div>
-            <div class="footer__cards_img"><img src="assets/img/icons/footer/mscard.png" alt="mscard"></div>
-            <div class="footer__cards_img"><img src="assets/img/icons/footer/mir.png" alt="mir"></div>
-        </div>
-        <div class="footer__button_block">
-            <button class="button button__footer">Заказать звонок</button>
-        </div>
-    </div>
-    <div class="footer__down">
-        2020 © Никас <br>
-        Все права защищены
     </div>
 </section><div class="befSend">Заявка обрабатывается...</div>
 <!-- <script src="assets/libraries/slick.min.js"></script> -->
+<script src="assets/libraries/slick.min.js"></script>
+<script src="assets/libraries/nprogress.js"></script>
+<script>
+    NProgress.start();
+</script>
+<script src="assets/js/jquery.inputmask.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
 </html>

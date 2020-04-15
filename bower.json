@@ -16,7 +16,10 @@
   "dependencies": {
     "normalize.css": "^8.0.1",
     "jquery": "^3.5.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "nprogress": "^0.2.0",
+    "wow": "^1.1.2",
+    "animate.css": "^3.7.2"
   },
   "overrides": {
     "jquery": {
@@ -24,6 +27,18 @@
     },
     "slick-carousel": {
       "main": "slick/slick.min.js"
+    },
+    "nprogress": {
+      "main": [
+        "nprogress.js",
+        "nprogress.css"
+      ]
+    },
+    "animate.css": {
+      "main": "animate.min.css"
+    },
+    "wow": {
+      "main": "dist/wow.min.js"
     }
   }
 }

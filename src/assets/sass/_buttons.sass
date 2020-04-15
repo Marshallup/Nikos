@@ -34,6 +34,14 @@
         top: 0
         right: 0
     &__callus
+        &::after
+            @media screen and ( max-width: 769px)
+                width: 160px
+        &::before
+            @media screen and ( max-width: 769px)
+                width: 160px
+        @media screen and ( max-width: 769px)
+            width: 160px
     &__order
         margin-top: 16px
         width: 304px
@@ -83,3 +91,12 @@
             border: 1px solid #FFFFFF
     &__footer
         margin-top: 57px
+        &::before
+            @media screen and ( max-width: 839px)
+                width: 204px
+        &::after
+            @media screen and ( max-width: 839px)
+                width: 204px 
+        @media screen and ( max-width: 839px)
+            width: 204px
+            

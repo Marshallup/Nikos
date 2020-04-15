@@ -1,11 +1,41 @@
 .main
     position: relative
     z-index: 1
-    background-position: center center
-    background-attachment: fixed
-    background-size: cover
     color: $MainColor
     padding: 24px 0 46px 0
+    .burger
+        display: none
+        @media screen and ( max-width: 769px )
+            display: block
+            order: 3
+            width: 30px
+            height: 20px
+            position: relative
+        span
+            @media screen and ( max-width: 769px )
+                position: relative
+                display: block
+                width: 30px
+                height: 2px
+                background-color: #fff
+        &::after
+            @media screen and ( max-width: 769px )
+                content: ''
+                position: absolute
+                display: block
+                bottom: 0
+                width: 30px
+                height: 2px
+                background-color: #fff
+        &::before
+            @media screen and ( max-width: 769px )
+                content: ''
+                position: absolute
+                display: block
+                top: 9px
+                width: 30px
+                height: 2px
+                background-color: #fff
     .fullBackground
         z-index: -1
         background-position: center center
@@ -31,6 +61,7 @@
         align-items: center
         justify-content: space-between
         padding: 0 110px
+        animation-delay: 2s
         @media screen and ( max-width: 944px )
             padding: 0 40px
         .logo
@@ -41,17 +72,22 @@
             justify-content: space-between
             @media screen and ( max-width: 944px )
                 width: 342px
+            @media screen and ( max-width: 769px )
+                display: none
             a
                 font-size: 14px
                 letter-spacing: 1px
                 @media screen and ( max-width: 944px )
-                    margin-right: 10px
-                    
+                    margin-right: 10px        
         a
             color: $MainColor
             text-decoration: none
             text-transform: uppercase
             font-size: 18px
+        .phone
+            @media screen and ( max-width: 769px )
+                margin-left: auto
+                margin-right: 30px
     &__title
         text-align: center
         margin-top: 130px
@@ -60,10 +96,12 @@
         font-size: 60px
         letter-spacing: 5px
         font-weight: normal
+        animation-delay: 2.5s
     &__subtitle
         margin-top: 30px
         line-height: 35px
         text-align: center
+        animation-delay: 3s
     &__points
         margin-top: 200px
         display: flex
@@ -76,3 +114,5 @@
                 background: url('/assets/img/icons/main_point-fill.svg') center center/cover no-repeat
             &:nth-child(2)
                 margin: 0 18px
+    &__line
+        animation-delay: 3.5s

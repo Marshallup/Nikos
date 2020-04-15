@@ -10,8 +10,22 @@
     &:focus
         outline: 0
         outline-offset: 0
+html
+    overflow-x: hidden
 body
+    overflow-x: hidden
     position: relative
+.white
+    position: absolute
+    z-index: 10000
+    width: 100%
+    height: 100%
+    background-color: #fff
+#nprogress
+    .bar
+        z-index: 10001
+    .spinner
+        z-index: 10001
 .container
     max-width: 1366px
     margin: 0 auto

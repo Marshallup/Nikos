@@ -1,6 +1,6 @@
 .services
+    padding-bottom: 130px
     background-color: #E5E5E5
-    height: 542px
     &__wrap
         display: flex
         justify-content: center
@@ -10,6 +10,8 @@
             justify-content: space-between
             text-align: center
             color: $colorText
+            @media screen and ( max-width: 900px)
+                width: 750px
             &__title
                 font-weight: normal
                 font-size: 19px
@@ -19,3 +21,15 @@
                 font-family: Open Sans
                 margin-top: 22px
                 line-height: 25px
+    @media screen and ( max-width: 769px )
+        .block
+            width: 644px
+            flex-wrap: wrap
+            justify-content: space-evenly
+            &__about
+                &_pakovki
+                    margin-top: 34px
+            &__title
+                line-height: 20px
+            &__text
+                margin-top: 12px

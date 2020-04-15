@@ -9,7 +9,7 @@
             text-align: center
             text-transform: uppercase
             color: $colorText
-            flex-basis: 15%
+            flex-basis: 200px
             span
                 position: relative
                 cursor: pointer
@@ -63,6 +63,13 @@
         img
             width: 800px
             height: 410px
+            @media screen and ( max-width: 916px )
+                width: 700px
+            @media screen and ( max-width: 850px )
+                width: 600px
+            @media screen and ( max-width: 769px )
+                width: 500px
+                height: 300px
     .slick-arrow
         position: absolute
         z-index: 1001
@@ -75,11 +82,23 @@
         background-color: #fff
         outline: none
     .slick-next
-        right: 180px
+        right: 10vw
         background: url('/assets/img/icons/arrow-right.png') center center/cover no-repeat
+        @media screen and ( max-width: 1176px )
+            right: 5vw
+        @media screen and ( max-width: 1017px )
+            right: 20px
+        @media screen and ( max-width: 600px )
+            right: 5px
     .slick-prev
-        left: 180px
+        left: 10vw
         background: url('/assets/img/icons/arrow-left.png') center center/cover no-repeat
+        @media screen and ( max-width: 1176px )
+            left: 5vw
+        @media screen and ( max-width: 1017px )
+            left: 20px
+        @media screen and ( max-width: 600px )
+            left: 5px
 .numbers
     margin-top: 30px
     font-weight: normal
