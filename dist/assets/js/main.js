@@ -296,12 +296,38 @@ $(document).ready(function () {
 });
 $('.slider').slick({
   fade: true,
-  waitForAnimate: false
+  waitForAnimate: false,
+  zIndex: 100,
+  responsive: [{
+    breakpoint: 577,
+    settings: {
+      arrows: false
+    }
+  }]
 });
+$('.burger').click(function () {
+  $(this).toggleClass('active_burger');
+  $('.menu').toggleClass('active_menu');
+  $('html').toggleClass('lock');
+});
+$('.menu__link').click(function () {
+  $('.burger').removeClass('active_burger');
+  $('.menu').removeClass('active_menu');
+  $('html').removeClass('lock');
+});
+
+function addAnimate() {
+  $('.header').addClass('fadeInUpBig');
+  $('.main__title').addClass('fadeInUpBig');
+  $('.main__subtitle').addClass('fadeInUpBig');
+  $('.main__line').addClass('fadeInUpBig');
+  $('.button__main').addClass('fadeInUpBig');
+}
 
 window.onload = function () {
   NProgress.done();
   $('.white').remove();
+  addAnimate();
   $('body').css('overflow', 'auto');
   $('.slider-two').hide();
   $('.slider-three').hide();
