@@ -1,8 +1,9 @@
 .main
     position: relative
-    z-index: 1
     color: $MainColor
-    padding: 24px 0 46px 0
+    padding: 0 0 46px 0
+    height: 800px
+    z-index: 2
     .burger
         display: none
         transition: all 1s linear
@@ -42,34 +43,14 @@
                 width: 30px
                 height: 1px
                 background-color: #fff
-    .fullBackground
-        z-index: -1
-        background-position: center center
-        background-repeat: no-repeat
-        background-attachment: fixed
-        background-size: cover
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        &::before
-            content: ''
-            position: absolute
-            z-index: -1
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            background-color: rgba(0, 0, 0, .48)
     .header
         display: flex
         align-items: center
         justify-content: space-between
-        padding: 0 110px
+        padding: 24px 110px 0
         animation-delay: 2s
         @media screen and ( max-width: 944px )
-            padding: 0 40px
+            padding: 24px 40px 0
         .logo
             opacity: .8
         .menu
@@ -81,11 +62,21 @@
                 width: 342px
             @media screen and ( max-width: 769px )
                 transition: top .5s linear
+                flex-direction: column
+                justify-content: center
+                width: 100vw
+                height: 100vh
+                background-color: #EDE4D4
+                z-index: 15000
                 position: fixed
-                left 0
-                height: 1%
-                z-index: 1001
+                left: 0
                 top: -100%
+                z-index: 1001
+                display: none
+                a
+                    margin-bottom: 42px
+                    color: #644F28
+                    font-size: 20px
             a
                 position: relative
                 font-size: 14px
@@ -111,18 +102,8 @@
             background-color:  white
         .active_menu
             transition: top .5s linear
-            flex-direction: column
-            justify-content: center
-            z-index: 1001
-            width: 100%
-            height: 100%
+            display: flex
             top: 0
-            left: 0
-            background-color: #EDE4D4
-            a
-                margin-bottom: 42px
-                color: #644F28
-                font-size: 20px
         a
             color: $MainColor
             text-decoration: none
@@ -132,7 +113,11 @@
             @media screen and ( max-width: 769px )
                 margin-left: auto
                 margin-right: 30px
+    &__wrap
+        position: relative
+        // z-index: 0
     &__title
+        z-index: -1
         text-align: center
         margin-top: 130px
         margin-bottom: 0
@@ -142,9 +127,11 @@
         font-weight: normal
         animation-delay: 2.5s
     &__subtitle
+        z-index: -1
         margin-top: 30px
         line-height: 35px
         text-align: center
+        font-weight: 100
         animation-delay: 3s
     &__points
         margin-top: 200px
@@ -159,8 +146,10 @@
             &:nth-child(2)
                 margin: 0 18px
     &__line
+        z-index: -1
         animation-delay: 3.5s
     .active_burger
+        z-index: 15001
         transition: all .5s linear
         span
             transition: all .5s linear
@@ -175,3 +164,40 @@
             background-color: #644F28
             transform: rotate(-45deg)
             top: 10px
+.fullBackground
+    z-index: -1
+    // background: url('/assets/img/bg-main.jpg')
+    transition: 5s
+    background-position: center center
+    background-repeat: no-repeat
+    // background-attachment: fixed
+    background-size: cover
+    background-size: cover
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    &::before
+        content: ''
+        position: absolute
+        z-index: 1
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .48)
+//     animation-name: bg
+//     animation-direction: alternate-reverse
+//     animation-duration: 10s
+//     animation-fill-mode: forwards
+//     animation-iteration-count: infinite
+//     animation-play-state: running
+//     animation-timing-function: ease-in-out
+// @keyframes bg
+//     0%
+//         background-image: url('/assets/img/bg-main3.jpg')
+//     50%
+//         background-image: url('/assets/img/bg-main1.jpg' )
+//     100%
+//         background-image: url('/assets/img/bg-main2.jpg')

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/libraries/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
     <link rel="stylesheet" href="assets/libraries/nprogress.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" href="assets/libraries/animate.min.css">
@@ -21,15 +22,15 @@
     <div class="fullBackground"></div>
     <div class="container">
         <header class="header wow slow">
-            <img src="assets/img/icons/logo.png" alt="logo" class="logo">
-            <div class="burger"><span></span></div>
+            <img src="assets/img/icons/logo.png" alt="logo" class="logo wow slow">
+            <div class="burger wow slow"><span></span></div>
             <nav class="menu">
                 <a href="#company" class="menu__link">компания</a>
                 <a href="#gallery" class="menu__link">фотогалерея</a>
                 <a href="#services" class="menu__link">услуги</a>
                 <a href="#order" class="menu__link">Заказ</a>
             </nav>
-            <a href="tel:+79130117599" class="phone">8 (913) 011-75-99</a>
+            <a href="tel:+79130117599" class="phone wow slow">8 (913) 011-75-99</a>
         </header>
         <div class="main__wrap">
             <h1 class="main__title wow slow">Кованные изделия</h1>
@@ -46,8 +47,8 @@
     </div>
 </section><section id="company" class="company">
     <div class="container">
-        <h2 class="title wow fadeInLeft slow">компания</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInRight slow">
+        <h2 style="z-index: -1;" class="title wow fadeInLeft slow">компания</h2>
+        <img style="z-index: -1;" src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInRight slow">
         <div class="company__subtitle wow fadeInDown slow"> 
             Компания «Никас-дизайн» специализируется на горячей художественной <br>
             ковке металла. Наш мастер-кузнец воплотит в жизнь любые ваши творческие <br>
@@ -58,14 +59,14 @@
     </div>
 </section><section class="gallery">
     <div id="gallery_cont" class="container">
-        <h2 id="gallery" class="title wow fadeInUpBig slow">фотогалерея</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUpBig slow">
-        <div class="types wow fadeInUpBig slow">
-            <div class="type"><span data-type="1" class="active__type">Ограждения</span></div>
-            <div class="type"><span data-type="2" class="type__name active__type">Предметы интерьера</span></div>
-            <div class="type"><span data-type="3" class="type__name active__type">паковки</span></div>
+        <h2 id="gallery" class="title wow fadeInUp slow">фотогалерея</h2>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUp slow">
+        <div class="types wow fadeInUp slow">
+            <div class="type"><span data-type="1" class="span__type active__type">Ограждения</span></div>
+            <div class="type"><span data-type="2" class="span__type type__name active__type">Предметы интерьера</span></div>
+            <div class="type"><span data-type="3" class="span__type type__name active__type">паковки</span></div>
         </div>
-        <div id="slider_one" data-type="1" class="slider slider-one wow fadeInUpBig slow">
+        <div id="slider_one" data-type="1" class="slider slider-one wow fadeInUp slow">
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/03/09/17/03/spring-4916430_960_720.jpg" alt=""></div>
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/04/06/19/47/easter-eggs-5011031_960_720.jpg" alt=""></div>
             <div class="slider__item"><img src="https://cdn.pixabay.com/photo/2020/02/06/21/02/background-4825512_960_720.jpg" alt=""></div>
@@ -98,10 +99,20 @@
             <div class="slider__item"><img src="assets/img/slider/pakovka19.jpg" alt="p"></div>
             <div class="slider__item"><img src="assets/img/slider/pakovka20.jpg" alt="p"></div>
         </div>
-        <div class="numbers">
+        <div class="numbers numbers-one">
             <span class="start">1</span>
                 /
             <span class="end">3</span>
+        </div>
+        <div class="numbers numbers-two">
+            <span class="start">1</span>
+                /
+            <span class="end">6</span>
+        </div>
+        <div class="numbers numbers-three">
+            <span class="start">1</span>
+                /
+            <span class="end">21</span>
         </div>
     </div>
 </section><section id="services" class="services">
@@ -144,9 +155,88 @@
         художественной ковки </h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
         <div class="video__block wow jackInTheBox"><iframe width="560" height="315" src="https://www.youtube.com/embed/Gbz6OYqlyYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+</section><section class="howOrder">
+    <div class="container">
+        <h2 class="title wow fadeInUp slow">Как заказать</h2>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUp slow">
+        <div class="fence  wow fadeInUp slow">
+            <div class='fence__title howOrder__title'>ОГРАЖДЕНИЯ</div>
+            <div class="fence__wrap">
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">1</span>
+                    <div class="fence__text">
+                        Для того, чтобы у Вас появились ограждения от наших Мастеров, вам необходимо сделать фотографии и замеры проемов под будущие ограждения.
+                    </div>
+                </div>
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">2</span>
+                    <div class="fence__text">
+                        Связаться с нами по телефону (воцап, эл. почте), мы проконсультируем вас по всем вопросам, в том числе по стоимости.
+                    </div>
+                </div>
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">3</span>
+                    <div class="fence__text">
+                        Для подготовки договора нам потребуются точные размеры, если это затруднительно сделать, можно изготовить рамки из профильной трубы  «по месту» ваших проемов и выслать их нам транспортной компанией.
+                    </div>
+                </div>
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">4</span>
+                    <div class="fence__text">
+                        После согласования бюджета, мы заключаем договор — аванс 50%. Далее наши дизайнеры подготавливают проект ограждений. Мы согласовываем его с вами.
+                    </div>
+                </div>
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">5</span>
+                    <div class="fence__text">
+                        Изготавливаем. После полной готовности, предоставляем подробный фотоотчет, с подтверждением полное соответствие проекту.
+                    </div>
+                </div>
+                <div class="fence__block">
+                    <span class="fence__number howOrder__number">6</span>
+                    <div class="fence__text">
+                        Подписываем акты выполненных работ (в сканированном виде). Оплата оставшейся суммы (50%). Отправка транспортной компанией в ваш адрес.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="items wow fadeInUp slow">
+            <div class="items__title howOrder__title">Предметы интерьера</div>
+            <div class="items__wrap">
+                <div class="items__block">
+                    <span class="items__number">1</span>
+                    <div class="items__text">Изготавливаем «под заказ» кованые скульптуры 
+                        и прочие изделия для декорирования интерьера;</div>
+                </div>
+                <div class="items__block">
+                    <span class="items__number">2</span>
+                    <div class="items__text">Вся работа выполняется руками Мастера кузнеца, стоимость 
+                        и сроки рассчитываются индивидуально.</div>
+                </div>
+            </div>
+        </div>
+        <div class="forging  wow fadeInUp slow">
+            <div class="howOrder__title items__title">паковки</div>
+            <div class="forging__wrap">
+                <div class="forging__block">
+                    <span class="forging__number">1</span>
+                    <div class="forging__text">Вся работа выполняется руками Мастера кузнеца, стоимость 
+                        и сроки рассчитываются индивидуально.</div>
+                </div>
+                <div class="forging__block">
+                    <span class="forging__number">2</span>
+                    <div class="forging__text">Мы продаем паковки поштучно. Отправляем транспортными компаниями по всей России. </div>
+                </div>
+                <div class="forging__block">
+                    <span class="forging__number">3</span>
+                    <div class="forging__text">Срок доставки около 3-7 дней, только после 100 % предоплаты.</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section><section id="callus" class="callus">
-    <h2 class="title callus__title wow fadeInUpBig">Свяжитесь с нами</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig">
+    <h2 class="title callus__title wow fadeInUp">Свяжитесь с нами</h2>
+    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDown">
     <div class="subtitle callus__subtitle wow rotateInUpRight">
         Остались вопросы? Звоните нам прямо сейчас или закажите <br> 
         обратный звонок
@@ -159,8 +249,8 @@
         <div class="nValidCall"></div>
     </form>
 </section><section id="order" class="order">
-    <h2 class="title wow fadeInUpBig slow">готовы сделать заказ?</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
+    <h2 class="title wow fadeInUp slow">готовы сделать заказ?</h2>
+    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDown slow">
     <div class="subtitle wow fadeInRight slow">Заполните форму заказа и мы свяжемся с вами <br>
         для его дальнейшего обсуждения</div>
     <form action="mail.php" method="post" class="order__form wow fadeInRight slow">
@@ -177,15 +267,15 @@
         <div class="nValid"></div>
     </form>
 </section><section class="contacts">
-    <h2 class="title wow fadeInUpBig slow">контакты</h2>
+    <h2 class="title wow fadeInUp slow">контакты</h2>
     <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
     <div class="contacts__wrap">
-            <div class="contacts__block wow fadeInLeftBig slow"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
-            <div class="contacts__block wow fadeInUpBig slow"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru</a></div>
-            <div class="contacts__block wow fadeInRightBig slow"><span>Адрес</span><span class="data">г. Новосибирск, <br>
+            <div class="contacts__block wow fadeInLeft slow"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
+            <div class="contacts__block wow fadeInUp slow"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru</a></div>
+            <div class="contacts__block wow fadeInRight slow"><span>Адрес</span><span class="data">г. Новосибирск, <br>
                 улица Кирова 46</span></div>
     </div>
-</section><div class="footer">
+</section><section class="footer">
     <div class="container">
         <div class="footer__main wow fadeInLeft slow">
             <div class="footer__logo">
@@ -218,7 +308,25 @@
             Все права защищены
         </div>
     </div>
-</section><div class="befSend">Заявка обрабатывается...</div>
+</section><div class="befSendMes">
+    <div class="befSendDiv">
+        <div>
+            Мы свяжемся с Вами в ближайшее время!
+        </div>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line line_modal">
+    </div>
+   <div class="overlay"></div>
+</div>
+<div class="befSend">
+    <div class="befSendDiv">
+        <div>
+            Спасибо за заказ! <br>
+        Мы свяжемся с Вами в ближайшее время!
+        </div>
+        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line line_modal">
+    </div>
+   <div class="overlay"></div>
+</div>
 <!-- <script src="assets/libraries/slick.min.js"></script> -->
 <script src="assets/libraries/slick.min.js"></script>
 <script src="assets/libraries/nprogress.js"></script>

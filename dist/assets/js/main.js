@@ -1,11 +1,5 @@
 "use strict";
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 !function (i) {
   i.fn.fullClip = function (n) {
     var s,
@@ -27,7 +21,147 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }();
   };
 }(jQuery);
+var currentImageIndex = -1;
+var imageIds = new Array();
+var fadeSpeed; //Sizing constants. these determine the value of the CSS property 'background-size' of the selected container
+
+var SCALING_MODE_NONE = 0; //Uses the original image size
+
+var SCALING_MODE_STRETCH = 1; //Sets 'background-size' to '100% 100%'. This stretches the background image to fill the container, discarding the images aspect ratio.
+
+var SCALING_MODE_COVER = 2; //Sets 'background-size' to 'cover'. This makes the background images fill the entire container while retaining its aspect ratio.
+
+var SCALING_MODE_CONTAIN = 3; //Sets 'background-size' to 'contain'. This scales the bakcground image to the largest size such that both its width and its height can fit inside the content area
+
+/**
+ * Adds a cycling (fading) background to the selected element
+ * @param {Object} options Options for tweaking the cycle setings. 
+ * imageUrls: an array of strings representing urls to the images to cycle through
+ * duration: the nr of miliseconds between two fades.
+ * fadeSpeed: the nr of miliseconds it takes for one image to fade out to another.
+ * backgroundSize: specify a value for the css3 property 'background size' or one of the following constants; SCALING_MODE_NONE, SCALING_MODE_STRETCH, SCALING_MODE_COVER, SCALING_MODE_CONTAIN
+ */
+
+$.fn.backgroundCycle = function (options) {
+  var settings = $.extend({
+    imageUrls: [],
+    duration: 5000,
+    fadeSpeed: 1000,
+    backgroundSize: SCALING_MODE_NONE
+  }, options);
+  fadeSpeed = settings.fadeSpeed;
+  var marginTop = this.css('margin-top');
+  var marginRight = this.css('margin-right');
+  var marginBottom = this.css('margin-bottom');
+  var marginLeft = this.css('margin-left');
+
+  if (!this.is("body")) {
+    this.css({
+      position: 'absolute'
+    });
+  }
+
+  var contents = $(document.createElement('div'));
+  var children = this.children().detach();
+  contents.append(children);
+  imageIds = new Array();
+
+  for (var i = 0; i < settings.imageUrls.length; i++) {
+    var id = 'bgImage' + i;
+    var src = settings.imageUrls[i];
+    var cssClass = 'cycle-bg-image';
+    var image = $(document.createElement('div'));
+    image.attr('id', id);
+    image.attr('class', cssClass);
+    var sizeMode;
+
+    switch (settings.backgroundSize) {
+      default:
+        sizeMode = settings.backgroundSize;
+        break;
+
+      case SCALING_MODE_NONE:
+        sizeMode = 'auto';
+        break;
+
+      case SCALING_MODE_STRETCH:
+        sizeMode = '100% 100%';
+        break;
+
+      case SCALING_MODE_COVER:
+        sizeMode = 'cover';
+        break;
+
+      case SCALING_MODE_CONTAIN:
+        sizeMode = 'contain';
+        break;
+    }
+
+    image.css({
+      'background-image': "url('" + src + "')",
+      'background-repeat': 'no-repeat',
+      'background-size': sizeMode,
+      '-moz-background-size': sizeMode,
+      '-webkit-background-size': sizeMode,
+      position: 'absolute',
+      left: marginLeft,
+      top: marginTop,
+      right: marginRight,
+      bottom: marginBottom
+    });
+    this.append(image);
+    imageIds.push(id);
+  }
+
+  contents.css({
+    position: 'absolute',
+    left: marginLeft,
+    top: marginTop,
+    right: marginRight,
+    bottom: marginBottom
+  });
+  this.append(contents);
+  $('.cycle-bg-image').hide();
+  $('#' + imageIds[0]).show();
+  setInterval(cycleToNextImage, settings.duration);
+};
+
+function cycleToNextImage() {
+  var previousImageId = imageIds[currentImageIndex];
+  currentImageIndex++;
+
+  if (currentImageIndex >= imageIds.length) {
+    currentImageIndex = 0;
+  }
+
+  var options = {
+    duration: fadeSpeed,
+    queue: false
+  };
+  $('#' + previousImageId).fadeOut(options);
+  $('#' + imageIds[currentImageIndex]).fadeIn(options);
+}
+
 $(document).ready(function () {
+  $('.slider').slick({
+    fade: true,
+    waitForAnimate: false,
+    zIndex: 100,
+    infinite: false,
+    // centerMode: true,
+    responsive: [{
+      breakpoint: 577,
+      settings: {
+        arrows: false
+      }
+    }]
+  });
+  $(".fullBackground").backgroundCycle({
+    imageUrls: ['assets/img/bg-main3.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main2.jpg'],
+    fadeSpeed: 2000,
+    duration: 5000,
+    backgroundSize: SCALING_MODE_COVER
+  });
   $('#phone_order').inputmask({
     "mask": "+ 7(999) 999-9999"
   });
@@ -110,12 +244,13 @@ $(document).ready(function () {
       url: "mail.php",
       //Change
       cache: false,
-      beforeSend: function beforeSend() {// $('.befSend').css("display","flex");
+      beforeSend: function beforeSend() {
+        $('.befSendMes').css("display", "flex");
       },
       data: th.serialize()
     }).done(function () {
-      // $('.befSend').text('Выполнено!')
-      setTimeout(function () {// $('.befSend').css("display","none");
+      setTimeout(function () {
+        $('.befSendMes').css("display", "none");
       }, 300);
       setTimeout(function () {
         // Done Functions
@@ -124,26 +259,11 @@ $(document).ready(function () {
     });
     return false;
   });
-  $('.fullBackground').fullClip({
-    images: ['assets/img/bg-main.jpg', 'assets/img/bg-main1.jpg', 'assets/img/bg-main2.jpg'],
-    transitionTime: 2000,
-    wait: 5000
-  });
   var points = document.querySelectorAll('.point');
   var i = 1;
   setInterval(function () {
-    var _iterator = _createForOfIteratorHelper(points),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var point = _step.value;
-        point.style.background = "url('/assets/img/icons/main_point.svg')";
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
+    for (var _j = 0; _j < points.length; _j++) {
+      points[_j].style.background = "url('/assets/img/icons/main_point.svg')";
     }
 
     points[i].style.background = "url('/assets/img/icons/main_point-fill.svg')";
@@ -194,126 +314,129 @@ $(document).ready(function () {
   var types = document.querySelector('.types');
   var spans = types.querySelectorAll('span');
   var sliders = document.querySelectorAll('.slider');
+  $('.numbers-two').hide();
+  $('.numbers-three').hide();
 
   types.onclick = function (e) {
     if (e.target.nodeName != 'SPAN') return;
     var type = e.target;
 
-    var _iterator2 = _createForOfIteratorHelper(spans),
-        _step2;
-
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var _type = _step2.value;
-
-        _type.classList.remove('active__type');
-
-        if (_type.classList != 'type__name') {
-          _type.classList.add('type__name');
-        }
+    if (window.innerWidth > 577) {
+      if (type.dataset.type == 1) {
+        $('.numbers').hide();
+        $('.numbers-one').show();
+      } else if (type.dataset.type == 2) {
+        $('.numbers').hide();
+        $('.numbers-two').show();
+      } else {
+        $('.numbers').hide();
+        $('.numbers-three').show();
       }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
+    }
+
+    for (var _i = 0; _i < spans.length; _i++) {
+      spans[_i].classList.remove('active__type');
+
+      if (spans[_i].classList != 'type__name') {
+        spans[_i].classList.add('type__name');
+      }
     }
 
     type.classList.remove('type__name');
     type.classList.add('active__type');
 
-    var _iterator3 = _createForOfIteratorHelper(sliders),
-        _step3;
+    for (var _i2 = 0; _i2 < sliders.length; _i2++) {
+      sliders[_i2].hidden = true;
 
-    try {
-      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-        var slider = _step3.value;
-        slider.style.display = 'none';
-
-        if (type.dataset.type == slider.dataset.type) {
-          slider.style.display = 'block';
-        }
+      if (type.dataset.type == sliders[_i2].dataset.type) {
+        sliders[_i2].style.marginTop = 38 + 'px';
+        sliders[_i2].style.height = 'auto';
+        sliders[_i2].style.overflowY = 'visible';
+        sliders[_i2].hidden = false;
       }
-    } catch (err) {
-      _iterator3.e(err);
-    } finally {
-      _iterator3.f();
     }
   };
 
-  function count() {
-    var div = document.createElement('div');
-    var span = document.createElement('span');
-    var span2 = document.createElement('span');
-    span.textContent = 1;
-    span.insertAdjacentText('beforeend', '/');
-    span2.textContent = 3;
-    div.classList.add('numbers');
-    span.classList.add('start');
-    span2.classList.add('end');
-    div.prepend(span);
-    div.append(span2);
-    gallery_cont.append(div);
-  }
-
+  var span = $('.span__type');
   var arrows = document.querySelectorAll('.slick-arrow');
-  var span_start = document.querySelector('.start');
+  var span_start = document.querySelectorAll('.start');
   var j = 1;
   var j2 = 1;
   var j3 = 1;
 
-  var _iterator4 = _createForOfIteratorHelper(arrows),
-      _step4;
+  for (var arrow = 0; arrow < arrows.length; arrow++) {
+    arrows[arrow].onclick = function (e) {
+      if (e.target.classList.contains('slick-prev')) {
+        for (var _i3 = 0; _i3 < span.length; _i3++) {
+          if (!span[_i3].classList.contains('type__name') && span[_i3].dataset.type == 1) {
+            j--;
 
-  try {
-    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-      var arrow = _step4.value;
+            if (j < 1) {
+              j = 1;
+            }
+          } else if (!span[_i3].classList.contains('type__name') && span[_i3].dataset.type == 2) {
+            j2--;
 
-      arrow.onclick = function (e) {
-        if (e.target.classList.contains('slick-prev')) {
-          j--;
+            if (j2 < 1) {
+              j2 = 1;
+            }
+          } else if (!span[_i3].classList.contains('type__name') && span[_i3].dataset.type == 3) {
+            j3--;
 
-          if (j < 1) {
-            j = 3;
+            if (j3 < 1) {
+              j3 = 1;
+            }
           }
-
-          span_start.textContent = j;
-        } else if (e.target.classList.contains('slick-next')) {
-          j++;
-
-          if (j > 3) {
-            j = 1;
-          }
-
-          span_start.textContent = j;
         }
-      };
-    }
-  } catch (err) {
-    _iterator4.e(err);
-  } finally {
-    _iterator4.f();
+      } else if (e.target.classList.contains('slick-next')) {
+        for (var _i4 = 0; _i4 < span.length; _i4++) {
+          if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 1) {
+            j++;
+
+            if (j > 3) {
+              j = 3;
+            }
+          } else if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 2) {
+            j2++;
+
+            if (j2 > 6) {
+              j2 = 6;
+            }
+          } else if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 3) {
+            j3++;
+
+            if (j3 > 21) {
+              j3 = 21;
+            }
+          }
+        }
+      }
+
+      span_start[0].textContent = j;
+      span_start[1].textContent = j2;
+      span_start[2].textContent = j3;
+    };
   }
 });
-$('.slider').slick({
-  fade: true,
-  waitForAnimate: false,
-  zIndex: 100,
-  responsive: [{
-    breakpoint: 577,
-    settings: {
-      arrows: false
-    }
-  }]
-});
 $('.burger').click(function () {
-  $(this).toggleClass('active_burger');
   $('.menu').toggleClass('active_menu');
-  $('html').toggleClass('lock');
+  $(this).toggleClass('active_burger');
+
+  if ($('html').css('overflow') == "hidden") {
+    $('html').css('overflow', 'auto');
+  } else {
+    $('html').css('overflow', 'hidden');
+  }
+
+  $('.main__wrap').toggleClass('hideBt');
+  $('.button__main').toggleClass('hideBt');
 });
 $('.menu__link').click(function () {
   $('.burger').removeClass('active_burger');
   $('.menu').removeClass('active_menu');
-  $('html').removeClass('lock');
+  $('html').css('overflow', 'auto');
+  $('.main__wrap').removeClass('hideBt');
+  $('.button__main').removeClass('hideBt');
 });
 
 function addAnimate() {
@@ -329,6 +452,11 @@ window.onload = function () {
   $('.white').remove();
   addAnimate();
   $('body').css('overflow', 'auto');
-  $('.slider-two').hide();
-  $('.slider-three').hide();
+  $('.slider').get(0).slick.setPosition();
+  $('.slider-two').css('margin-top', '0');
+  $('.slider-two').css('height', 0);
+  $('.slider-two').css('overflow-y', 'hidden');
+  $('.slider-three').css('margin-top', '0');
+  $('.slider-three').css('height', 0);
+  $('.slider-three').css('overflow-y', 'hidden');
 };

@@ -69,6 +69,10 @@ function html() {
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream());
 }
+function fonts() {
+    return src("src/assets/fonts/*.*")
+        .pipe(dest("dist/assets/fonts/"))
+}
 function css() {
     return src(path.src.css, {base: "src/assets/sass/"})
         .pipe(plumber())
@@ -132,13 +136,15 @@ function watchFiles() {
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.images], images);
     gulp.watch(["src/*.php"], php)
+    gulp.watch(["src/assets/fonts/*.*"], fonts)
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, php, images, mainfiles));
+const build = gulp.series(clean, gulp.parallel(html, fonts, css, js, php, images, mainfiles));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
 exports.css = css;
+exports.fonts = fonts;
 exports.images = images;
 exports.mainfiles = mainfiles;
 exports.clean = clean;
