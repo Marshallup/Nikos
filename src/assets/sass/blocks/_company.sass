@@ -1,16 +1,27 @@
 .company
+    height: 575px
     padding-bottom: 30px
-    background: url('/assets/img/bg-company1.jpg') top right/60vw no-repeat
-    // background-position: top, center
-    // background-size: cover
-    // background-repeat: no-repeat
+    background: url('/assets/img/bg-company.jpg') top right/50vw no-repeat
+    @media screen and ( max-width: 700px )
+        height: 611px
+    @media screen and ( max-width: 577px )
+        height: 427px
+    @media screen and ( max-width: 530px )
+        height: 566px
     &__subtitle
         // z-index: -1
-        margin: 0 20px
-        font-family: Open Sans
+        width: 688px
+        margin: 0 auto
+        // margin: 0 20px
+        font-family: 'Open Sans', sans-serif
+        font-weight: 300
         text-align: center
         font-size: 18px
         font-weight: 300
         line-height: 28px
+        @media screen and ( max-width: 700px )
+            width: 500px
+        @media screen and ( max-width: 530px )
+            width: 315px
 .title
     @include title

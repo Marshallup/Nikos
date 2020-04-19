@@ -49,8 +49,10 @@
         justify-content: space-between
         padding: 24px 110px 0
         animation-delay: 2s
-        @media screen and ( max-width: 944px )
+        @media screen and ( max-width: 1012px )
             padding: 24px 40px 0
+        @media screen and ( max-width: 840px )
+            padding: 24px 10px 0
         .logo
             opacity: .8
         .menu
@@ -58,7 +60,7 @@
             display: flex
             justify-content: space-between
             transition: top .5s linear
-            @media screen and ( max-width: 944px )
+            @media screen and ( max-width: 942px )
                 width: 342px
             @media screen and ( max-width: 769px )
                 transition: top .5s linear
@@ -80,7 +82,7 @@
             a
                 position: relative
                 font-size: 14px
-                letter-spacing: 1px
+                letter-spacing: 1.5px
                 @media screen and ( max-width: 944px )
                     margin-right: 10px
         .menu__link::before
@@ -117,21 +119,24 @@
         position: relative
         // z-index: 0
     &__title
+        font-family: 'Playfair Display', serif
         z-index: -1
         text-align: center
         margin-top: 130px
         margin-bottom: 0
         text-transform: uppercase
         font-size: 60px
-        letter-spacing: 5px
-        font-weight: normal
+        letter-spacing: 8px
+        font-weight: 100
         animation-delay: 2.5s
     &__subtitle
         z-index: -1
         margin-top: 30px
         line-height: 35px
         text-align: center
-        font-weight: 100
+        font-size: 16px
+        letter-spacing: 1.3px
+        font-weight: 500
         animation-delay: 3s
     &__points
         margin-top: 200px

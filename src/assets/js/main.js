@@ -141,12 +141,14 @@ $(document).ready(function() {
         waitForAnimate: false,
         zIndex: 100,
         infinite: false,
+        draggable: false,
         // centerMode: true,
         responsive: [
             {
               breakpoint: 577,
               settings: {
-                  arrows: false
+                  arrows: false,
+                  draggable: true
               }
             }
           ]
