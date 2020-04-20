@@ -362,6 +362,15 @@ $(document).ready(function () {
   var span = $('.span__type');
   var arrows = document.querySelectorAll('.slick-arrow');
   var span_start = document.querySelectorAll('.start');
+  var span_end1 = document.querySelector('.numbers-one').querySelector('.end');
+  var span_end2 = document.querySelector('.numbers-two').querySelector('.end');
+  var span_end3 = document.querySelector('.numbers-three').querySelector('.end');
+  var sliderImg1 = document.querySelector('.slider-one').querySelectorAll('.slider__item').length;
+  var sliderImg2 = document.querySelector('.slider-two').querySelectorAll('.slider__item').length;
+  var sliderImg3 = document.querySelector('.slider-three').querySelectorAll('.slider__item').length;
+  span_end1.textContent = sliderImg1;
+  span_end2.textContent = sliderImg2;
+  span_end3.textContent = sliderImg3;
   var j = 1;
   var j2 = 1;
   var j3 = 1;
@@ -395,20 +404,20 @@ $(document).ready(function () {
           if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 1) {
             j++;
 
-            if (j > 3) {
-              j = 3;
+            if (j > span_end1.innerHTML) {
+              j = span_end1.innerHTML;
             }
           } else if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 2) {
             j2++;
 
-            if (j2 > 6) {
-              j2 = 6;
+            if (j2 > span_end2.innerHTML) {
+              j2 = span_end2.innerHTML;
             }
           } else if (!span[_i4].classList.contains('type__name') && span[_i4].dataset.type == 3) {
             j3++;
 
-            if (j3 > 21) {
-              j3 = 21;
+            if (j3 > span_end3.innerHTML) {
+              j3 = span_end3.innerHTML;
             }
           }
         }
