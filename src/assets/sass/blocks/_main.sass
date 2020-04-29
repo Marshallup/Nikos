@@ -8,7 +8,8 @@
         display: none
         transition: all 1s linear
         z-index: 1010
-        @media screen and ( max-width: 769px )
+        @media screen and ( max-width: 1000px )
+            margin-left: 15px
             transition: all .5s linear
             display: block
             order: 3
@@ -16,7 +17,7 @@
             height: 20px
             position: relative
         span
-            @media screen and ( max-width: 769px )
+            @media screen and ( max-width: 1000px )
                 transition: all .5s linear
                 position: relative
                 display: block
@@ -24,7 +25,7 @@
                 height: 1px
                 background-color: #fff
         &::after
-            @media screen and ( max-width: 769px )
+            @media screen and ( max-width: 1000px )
                 transition: all .5s linear
                 content: ''
                 position: absolute
@@ -34,7 +35,7 @@
                 height: 1px
                 background-color: #fff
         &::before
-            @media screen and ( max-width: 769px )
+            @media screen and ( max-width: 1000px )
                 transition: all .5s linear
                 content: ''
                 position: absolute
@@ -49,22 +50,27 @@
         justify-content: space-between
         padding: 24px 110px 0
         animation-delay: 2s
-        @media screen and ( max-width: 1012px )
-            padding: 24px 40px 0
-        @media screen and ( max-width: 840px )
+        @media screen and ( max-width:  1210px)
+            padding: 24px 50px 0
+        @media screen and ( max-width:  1090px)
             padding: 24px 10px 0
+        @media screen and ( max-width:  1000px)
+            padding: 24px 50px 0
+        @media screen and ( max-width:  670px)
+            padding: 24px 20px 0
         .logo
             opacity: .8
         .menu
-            width: 45%
+            width: 47%
             display: flex
             justify-content: space-between
             transition: top .5s linear
             @media screen and ( max-width: 942px )
                 width: 342px
-            @media screen and ( max-width: 769px )
+            @media screen and ( max-width: 1000px )
                 transition: top .5s linear
                 flex-direction: column
+                text-align: center
                 justify-content: center
                 width: 100vw
                 height: 100vh
@@ -83,8 +89,7 @@
                 position: relative
                 font-size: 14px
                 letter-spacing: 1.5px
-                @media screen and ( max-width: 944px )
-                    margin-right: 10px
+                font-weight: 300
         .menu__link::before
             content: ''
             width: 0
@@ -110,14 +115,20 @@
             color: $MainColor
             text-decoration: none
             text-transform: uppercase
-            font-size: 18px
+            font-size: 16px
         .phone
+            font-weight: 300
+            @media screen and ( max-width: 1000px )
+                order: -1
             @media screen and ( max-width: 769px )
                 margin-left: auto
-                margin-right: 30px
+        .main__menu_wrap
+            display: flex
+            align-items: center
+            @media screen and ( max-width: 1000px )
+                margin-left: auto
     &__wrap
         position: relative
-        // z-index: 0
     &__title
         font-family: 'Playfair Display', serif
         z-index: -1
@@ -192,17 +203,96 @@
         width: 100%
         height: 100%
         background-color: rgba(0, 0, 0, .48)
-//     animation-name: bg
-//     animation-direction: alternate-reverse
-//     animation-duration: 10s
-//     animation-fill-mode: forwards
-//     animation-iteration-count: infinite
-//     animation-play-state: running
-//     animation-timing-function: ease-in-out
-// @keyframes bg
-//     0%
-//         background-image: url('/assets/img/bg-main3.jpg')
-//     50%
-//         background-image: url('/assets/img/bg-main1.jpg' )
-//     100%
-//         background-image: url('/assets/img/bg-main2.jpg')
+.menu__stick
+    position: fixed
+    top: 0
+    width: 100%
+    left: 50%
+    z-index: 100000
+    transform: translateX(-50%)
+    border-bottom: 1px solid rgba(141, 106, 39, 0.15)
+    background: #FFFCF6
+    padding: 15px 35px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    color: #8D6A27
+    text-transform: uppercase
+    @media screen and ( max-width:  940px)
+        &_phone
+            margin-left: auto
+    @media screen and ( max-width:  577px)
+        padding: 7px 15px
+    &_burger
+        display: none
+        position: relative
+        z-index: 1000001
+        @media screen and ( max-width:  940px)
+            position: relative
+            display: block
+            margin-left: 20px
+            height: 30px
+            width: 30px
+            span
+                position: absolute
+                top: 14px
+                left: 0
+                width: 30px
+                height: 2px
+                background-color: #8d6a27
+                &::before,
+                &::after 
+                    content: ''
+                    transition: all .5s linear
+                    display: block
+                    position: absolute
+                    left: 0
+                    width: 30px
+                    height: 2px
+                    background-color: #8d6a27
+                &::after
+                    bottom: -10px
+                &::before
+                    top: -10px
+        @media screen and ( max-width:  345px)
+            margin-left: 10px
+        &_active
+            span
+                transition: all 1s linear
+                &::before,
+                &::after
+                    width: 20px
+                &::before
+                    transform: rotate(45deg)
+                    top: 8px
+                    left: -2px
+                &::after
+                    transform: rotate(-45deg)
+                    top: 8px
+                    left: 12px
+    @media screen and ( min-width:  1600px)
+        padding: 15px 15%
+    &_menu
+        flex-basis: 520px
+        display: flex
+        justify-content: space-between
+        transition: all .5s linear
+        @media screen and ( max-width:  940px)
+            position: fixed
+            right: -120vw
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            top: 0
+            width: 100%
+            height: 100vh
+            background-color: #ffffff
+            a
+                margin-bottom: 30px
+        &_active
+            right: 0
+    &_link
+    a
+        color: #8D6A27
+        text-transform: uppercase
+        text-decoration: none

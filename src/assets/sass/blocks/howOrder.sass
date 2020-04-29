@@ -1,8 +1,5 @@
 .howOrder
     background-color: #FFFBF3
-    padding-bottom: 130px
-    @media screen and ( max-width: 577px )
-        padding-bottom: 50px
     &__title
         text-align: center
         font-weight: 300
@@ -12,109 +9,36 @@
         color: #8D6A27
         @media screen and ( max-width: 577px )
             font-size: 20px
-    .fence
-        &__wrap
-            margin-top: 42px
-            display: flex
-            max-width: 1500px
-            justify-content: space-evenly
+    &__points
+        padding: 0 160px 0 180px
+        display: flex
+        justify-content: space-between
+        text-align: center
+        @media screen and ( max-width:  1145px)
+            padding: 0 80px 0 100px
+        @media screen and ( max-width:  925px)
+            padding: 0 10px 0 20px
+        @media screen and ( max-width: 769px )
+            padding: 0
             flex-wrap: wrap
-            @media screen and ( max-width: 875px )
-                height: 400px
-                justify-content: center
-            @media screen and ( max-width: 720px )
-                height: auto   
-        &__block
-            display: flex
-            justify-content: center
-            flex-basis: 33%
-            &:nth-child(3)
-                margin-bottom: 35px
-            @media screen and ( max-width: 875px )
-                flex-basis: 360px
-                &:nth-child(3)
-                    margin-bottom: 0
-            @media screen and ( max-width: 720px )
-                flex-basis: 100%
-                margin-bottom: 20px
-                &:nth-child(3)
-                    margin-bottom: 20px
-                &:last-child
-                    margin-bottom: 0
-        &__number
-            display: flex
-            align-items: flex-satrt
-            margin-right: 6px
-            // align-self: start
-            font-weight: 300
-            font-size: 30px
-            opacity: .5
-            color: #8D6A27
-        &__text
-            font-family: Open Sans, sans-serif
-            padding-top: 5px
-            line-height: 23px
-            text-align: center
-    .items
-        &__title
-            margin-top: 59px
-        &__wrap
-            margin-top: 38px
-            display: flex
-            justify-content: center
-            flex-wrap: wrap
-        &__block
-            display: flex
-            flex-basis: 300px
-            justify-content: center
-            @media screen and ( max-width: 577px )
-                flex-basis: 100%
-            @media screen and ( max-width: 600px )
-                &:first-child
-                    margin-bottom: 30px
-        &__number
-            margin-right: 6px
-            font-weight: 300
-            font-size: 30px
-            opacity: .5
-            align-self: start
-            color: #8D6A27
-        &__text
-            font-family: Open Sans, sans-serif
-            padding-top: 5px
-            text-align: center
-            line-height: 23px
-    .forging
-        &__wrap
-            margin-top: 38px
-            display: flex
-            flex-wrap: wrap
-            justify-content: center
-            @media screen and ( max-width: 757px )
-                justify-content: center
-        &__block
-            display: flex
-            justify-content: center
-            flex-basis: 23%
-            @media screen and ( max-width: 1200px )
-                flex-basis: 300px
-            @media screen and ( max-width: 757px )
-                flex-basis: 320px
-                &:last-child
-                    margin-top: 30px
-            @media screen and ( max-width: 639px )
-                margin-bottom: 30px
-                &:last-child
-                    margin-top: 0
-        &__number
-            margin-right: 6px
-            align-self: start
-            font-weight: 300
-            font-size: 30px
-            opacity: .5
-            color: #8D6A27
-        &__text
-            font-family: Open Sans, sans-serif
-            padding-top: 5px
-            line-height: 23px
-            text-align: center
+    &__point
+        display: flex
+        justify-content: center
+        @media screen and ( max-width: 769px )
+            margin-right: 40px
+            margin-bottom: 20px
+            flex-basis: 100%
+            &:last-child
+                margin-bottom: 0
+        @media screen and ( max-width: 350px )
+            margin-right: 20px
+                
+    &__number
+        margin-top: -13px
+        margin-right: 15px
+        font-size: 40px
+        color: #8D6A27
+        opacity: 0.5
+    &__text
+        font-family: Open Sans
+        line-height: 22px

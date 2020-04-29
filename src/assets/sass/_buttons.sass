@@ -45,17 +45,18 @@
             width: 160px
     &__order
         margin-top: 16px
+        box-sizing: border-box
         width: 304px
-        height: 58px
+        height: 56px
         &::after
             transition: all .6s
             content: ''
-            top: 3px
+            top: 1px
             right: 4px
             border: 1px solid rgba(141, 106, 39, 0.5)
             position: absolute
             width: 304px
-            height: 58px
+            height: 56px
         &:hover::after
             top: 0
             right: 0
@@ -67,30 +68,54 @@
             border: 1px solid rgba(141, 106, 39, 0.5)
             position: absolute
             width: 304px
-            height: 58px
+            height: 56px
         &:hover::before
             top: 0
             right: 0
     &__main
-        width: 173px
-        height: 56px
+        width: 304px
+        height: 58.85px
         color: $MainColor
         margin: 0 auto
         margin-top: 70px
         border: none
-        // z-index: 0
         &::after
-            width: 173px
-            height: 56px
+            width: 304px
+            height: 58.85px
             top: 2px
             right: 2px
             border: 1px solid #FFFFFF
         &::before
-            width: 173px
-            height: 56px
-            top: -5px
-            right: -4px
+            width: 304px
+            height: 58.85px
+            top: -8px
+            right: -7px
             border: 1px solid #FFFFFF
+        @media screen and ( max-width: 577px )
+            width: 274px
+            &::after,
+            &::before
+                width: 274px
+        &_menu
+            margin-right: 30px
+            width: 154.1px
+            height: 39.22px
+            font-size: 13px
+            line-height: 15px
+            letter-spacing: 0.05em
+            text-transform: uppercase
+            color: #FFFFFF
+            @media screen and ( max-width:  1000px)
+                margin-left: 15px
+                margin-right: 0
+            &::before,
+            &::after
+                width: 154.1px
+                height: 39.22px
+                border: 1px solid #FFFFFF
+            &::before
+                top: -2px
+                right: -1px
     &__footer
         margin-top: 57px
         &::before

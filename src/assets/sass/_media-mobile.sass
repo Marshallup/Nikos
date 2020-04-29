@@ -2,25 +2,29 @@
     .main
         height: 635px
         .header
+            padding: 24px 50px 0
             justify-content: space-between
             text-align: center
             flex-wrap: wrap
+            .main__menu_wrap
+                margin-top: 15px
+                margin-left: 0
+                flex-basis: 100%
+                display: flex
+                justify-content: space-between
+            @media screen and ( max-width: 421px )
+                padding: 24px 20px 0
+            @media screen and ( max-width: 355px )
+                padding: 24px 5px 0
             .logo
                 width: 120px
                 height: 49px
-                @media screen and ( max-width: 403px )
-                    margin-bottom: 15px
             .burger
-                margin: 0 30px
-                @media screen and ( max-width: 403px )
-                    margin-top: 15px
-                @media screen and ( max-width: 330px )
-                    margin: 0
-                    margin-top: 15px
-            .phone
-                order: 3
+                display: flex
+                order: 0
                 margin: 0
-                // margin-right: auto
+            .phone
+                margin: 0
         &__wrap
             display: flex
             justify-content: center
@@ -44,7 +48,9 @@
         &__points
             display: none
     .gallery
-        padding-bottom: 60px
+        @media screen and ( max-width: 383px )
+            .line
+                padding-top: 25px
         .types
             flex-wrap: wrap
             .type
@@ -64,9 +70,11 @@
             width: 278px
             height: 186px
         &__title
-            padding-top: 18px
-            font-size: 11px
-            line-height: 18px
+            width: 307px
+            padding-top: 0
+            margin-top: -16px
+            font-size: 10px
+            line-height: 17px
     .video
         &__block
             iframe

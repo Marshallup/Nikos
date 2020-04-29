@@ -78,8 +78,10 @@ body
     z-index: 2
     font-size: 26px
     color: #8D6A27
+    font-weight: 300
     background-color: #fff
     @media screen and ( max-width: 600px )
+        font-size: 21px
         width: 290px
         height: 150px
     .line_modal
@@ -92,6 +94,8 @@ body
 .hideSlider
     position: absolute
     opacity: 0
+.slick-disabled
+    opacity: 0
 @import 'vars'
 @import 'mixins'
 @import 'buttons'
@@ -100,10 +104,10 @@ body
 @import 'blocks/gallery'
 @import 'blocks/services'
 @import 'blocks/decor'
+@import 'blocks/forgingsSlider'
 @import 'blocks/video'
 @import 'blocks/howOrder'
 @import 'blocks/callus'
 @import 'blocks/order'
-@import 'blocks/contacts'
 @import 'blocks/footer'
 @import 'media-mobile'

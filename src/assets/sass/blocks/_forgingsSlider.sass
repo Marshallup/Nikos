@@ -1,0 +1,114 @@
+.forgingsSlider
+    position: relative
+    background: linear-gradient(180deg, rgba(255, 251, 243, 0.21) 0%, #FFFBF3 100%)
+    .forgingsSlider__slider
+        position: relative
+        display: flex
+        justify-content: center
+        .slick-list
+            width: 817px
+            overflow: hidden
+            @media screen and ( max-width:  915px)
+                width: 529px
+            @media screen and ( max-width:  600px)
+                width: 241px
+                
+        .slick-track
+            overflow: hidden
+            display: flex
+            justify-content: center
+            flex-wrap: wrap
+        .slider__item
+            margin-right: 48px
+            outline: none
+            height: 321px
+            img
+                width: 240px
+                height: 288px
+                cursor: pointer
+        .slick-arrow
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            border: none
+            font-size: 0
+            width: 30px
+            height: 30px
+            background-color: #fff
+            outline: none
+            cursor: pointer
+        .slick-prev
+            left: 40px
+            background: url('/assets/img/icons/arrow-left.png') center center/cover no-repeat
+            @media screen and ( max-width: 1000px)
+                left: 0
+            @media screen and ( max-width: 915px)
+                left: 30px
+            @media screen and ( max-width: 678px)
+                left: 0
+            @media screen and ( max-width:  600px)
+                left: 50px
+            @media screen and ( max-width:  440px)
+                left: 0
+        .slick-next
+            right: 40px
+            background: url('/assets/img/icons/arrow-right.png') center center/cover no-repeat
+            @media screen and ( max-width: 1000px)
+                right: 0
+            @media screen and ( max-width: 915px)
+                right: 30px
+            @media screen and ( max-width: 678px)
+                right: 0
+            @media screen and ( max-width:  600px)
+                right: 50px
+            @media screen and ( max-width:  440px)
+                right: 0
+    .forgingsSlider__modal
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .7)
+        display: flex
+        justify-content: center
+        align-items: center
+        &_wrap
+            position: relative
+            @media screen and ( max-width: 930px)
+                width: 700px
+                img
+                    width: 700px
+            @media screen and ( max-width: 770px)
+                width: 500px
+                img
+                    width: 500px
+            @media screen and ( max-width: 570px)
+                width: 300px
+                img
+                    width: 300px
+            span
+                position: absolute
+                top: -35px
+                right: -35px
+                width: 30px
+                height: 30px
+                cursor: pointer
+                &::after
+                    position: absolute
+                    content: ''
+                    top: 13px
+                    left: 0
+                    width: 25px
+                    height: 2px
+                    transform: rotate(45deg)
+                    background-color: #fff
+                &::before
+                    position: absolute
+                    content: ''
+                    bottom: 15px
+                    left: 0
+                    width: 25px
+                    height: 2px
+                    transform: rotate(-45deg)
+                    background-color: #fff

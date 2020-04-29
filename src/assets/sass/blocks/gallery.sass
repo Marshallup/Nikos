@@ -1,6 +1,5 @@
 .gallery
     background: linear-gradient(180deg, rgba(255, 251, 243, 0.21) 0%, #FFFBF3 100%)
-    padding-bottom: 130px
     .types
         display: flex
         justify-content: center
@@ -49,7 +48,7 @@
     .slick-list
         overflow: hidden
     .slick-track
-        width: 100vw
+        // width: 100vw
         display: flex
         justify-content: center
     .slider__item
@@ -57,21 +56,26 @@
         justify-content: center
         outline: none
         img
-            width: 800px
-            height: 410px
-            @media screen and ( max-width: 916px )
-                width: 700px
-            @media screen and ( max-width: 850px )
-                width: 600px
-            @media screen and ( max-width: 769px )
-                width: 500px
+            width: 100vw
+            height: 600px
+            @media screen and ( max-width: 800px )
+                height: 400px
+            @media screen and ( max-width: 565px )
                 height: 300px
-            @media screen and ( max-width: 577px )
-                width: 290px
+            @media screen and ( max-width: 425px )
                 height: 200px
+    .slick-slide
+        &::after
+           content: ''
+           position: absolute
+           top: 0
+           left: 0
+           height: 100%
+           width: 100%
+           background-color: rgba(0, 0, 0,.25 ) 
     .slick-arrow
         position: absolute
-        z-index: 1001
+        z-index: 10010000
         top: 50%
         transform: translateY(-50%)
         border: none
@@ -82,23 +86,11 @@
         outline: none
         cursor: pointer
     .slick-next
-        right: 10vw
-        background: url('/assets/img/icons/arrow-right.png') center center/cover no-repeat
-        @media screen and ( max-width: 1176px )
-            right: 5vw
-        @media screen and ( max-width: 1017px )
-            right: 20px
-        @media screen and ( max-width: 600px )
-            right: 5px
+        right: 0
+        background: url('/assets/img/icons/arrow-right_gallery.png') center center/cover no-repeat
     .slick-prev
-        left: 10vw
-        background: url('/assets/img/icons/arrow-left.png') center center/cover no-repeat
-        @media screen and ( max-width: 1176px )
-            left: 5vw
-        @media screen and ( max-width: 1017px )
-            left: 20px
-        @media screen and ( max-width: 600px )
-            left: 5px
+        left: 0
+        background: url('/assets/img/icons/arrow-left_gallery.png') center center/cover no-repeat
 .numbers
     margin-top: 30px
     font-weight: 300
@@ -108,4 +100,8 @@
     justify-content: center
     @media screen and ( max-width: 577px)
         display: none
+.slick-active
+    z-index: -1
+
+    
         

@@ -127,11 +127,7 @@ function cycleToNextImage() {
 
     $('#' + previousImageId).fadeOut(options);
     $('#' + imageIds[currentImageIndex]).fadeIn(options);
-}
-
-
-
-
+};
 
 
 $(document).ready(function() {
@@ -142,17 +138,84 @@ $(document).ready(function() {
         zIndex: 100,
         infinite: false,
         draggable: false,
-        // centerMode: true,
+        swipe: false,
         responsive: [
             {
               breakpoint: 577,
               settings: {
                   arrows: false,
-                  draggable: true
+                  draggable: true,
+                  swipe: true
               }
             }
-          ]
+        ]
     });
+
+    $('.forgingsSlider__slider').slick({
+        variableWidth: true,
+        infinite: false,
+        rows: 2,
+        slidesToShow: 3,
+        responsive: [
+            {
+              breakpoint: 915,
+              settings: {
+                    slidesToShow: 2
+              }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                      slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 350,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+
+    let forginSlider = document.querySelector('.forgingsSlider__slider');
+    let img = forginSlider.querySelectorAll('img');
+    let forgingsModal = document.querySelector('.forgingsSlider__modal');
+
+    let forgingsModalImg = document.querySelector('.forgingsSlider__img');
+
+    function setAttributeIMg() {
+        let number = 0;
+        for ( let i = 0; i < img.length; i++) {
+            if ( number == 21) {
+                img[i].setAttribute('data-img', `assets/img/slider/pakovka20.jpg`);
+            } else {
+                img[i].setAttribute('data-img', `assets/img/slider/pakovka${number}.jpg`);
+                number++
+            }
+        }
+    }
+    setAttributeIMg();
+
+    forgingsModal.style.display = 'none';
+
+    forginSlider.onclick = (e) => {
+        if (e.target.nodeName != 'IMG') return
+        let img = e.target;
+        forgingsModalImg.setAttribute('src', `${img.dataset.img}`);
+        forgingsModal.style.display = 'flex';
+        $('html').css('overflow', 'hidden');
+    };
+    forgingsModal.querySelector('SPAN').onclick = () => {
+        forgingsModal.style.display = 'none';
+        $('html').css('overflow', 'auto');
+    };
+
+    forgingsModal.onclick = function() {
+        this.style.display = 'none';
+        $('html').css('overflow', 'auto');
+    };
 
     $(".fullBackground").backgroundCycle({
         imageUrls: [
@@ -263,7 +326,8 @@ $(document).ready(function() {
         }
     },5000)
 
-    
+        /// ANCHOR LINKS -----------------
+
         $(".menu").on("click","a", function (event) {
             event.preventDefault();
             let id  = $(this).attr('href');
@@ -282,6 +346,15 @@ $(document).ready(function() {
             }
             $('body,html').animate({scrollTop: top}, 1500);
         });
+        $(".menu__stick_menu").on("click","a", function (event) {
+            event.preventDefault();
+            let id  = $(this).attr('href');
+            let top = $(id).offset().top;
+            if ( id == '#gallery') {
+                top = $(id).offset().top + 120;
+            }
+            $('body,html').animate({scrollTop: top}, 1500);
+        });
         $(".button__main").on("click", function () {
             let top = $("#order").offset().top;
             $('body,html').animate({scrollTop: top}, 1500);
@@ -290,112 +363,68 @@ $(document).ready(function() {
             let top = $("#callus").offset().top;
             $('body,html').animate({scrollTop: top}, 1500);
         });
+        $(".button__main_menu").on("click", function () {
+            let top = $("#callus").offset().top;
+            $('body,html').animate({scrollTop: top}, 3500);
+        });
 
-    let types = document.querySelector('.types');
-    let spans = types.querySelectorAll('span');
     let sliders = document.querySelectorAll('.slider');
 
-    $('.numbers-two').hide()
-    $('.numbers-three').hide()
-    types.onclick = (e) => {
-        if ( e.target.nodeName != 'SPAN' ) return
-        let type = e.target;
-        if (window.innerWidth > 577)  {
-            if ( type.dataset.type == 1) {
-                $('.numbers').hide()
-                $('.numbers-one').show()
-             } else if (type.dataset.type == 2 ) {
-                 $('.numbers').hide()
-                 $('.numbers-two').show()
-             } else {
-                 $('.numbers').hide()
-                 $('.numbers-three').show()
-             }
-        }
-        for ( let i = 0; i < spans.length; i++) {
-            spans[i].classList.remove('active__type')
-            if ( spans[i].classList != 'type__name') {
-                spans[i].classList.add('type__name')
-            }
-        }
-        type.classList.remove('type__name')
-        type.classList.add('active__type')
 
-        for ( let i = 0; i < sliders.length; i++) {
-            sliders[i].hidden = true
-            if (type.dataset.type == sliders[i].dataset.type) {
-                sliders[i].style.marginTop = 38 + 'px'
-                sliders[i].style.height = 'auto'
-                sliders[i].style.overflowY = 'visible'
-                sliders[i].hidden = false
-            }
-        }
-    }
-    let span = $('.span__type');
-    let arrows = document.querySelectorAll('.slick-arrow');
-    let span_start = document.querySelectorAll('.start');
+    let sliderOne = document.querySelector('.slider-one');
+    let arrows = sliderOne.querySelectorAll('.slick-arrow');
 
+    let span_start = document.querySelector('.start');
     let span_end1 = document.querySelector('.numbers-one').querySelector('.end');
-    let span_end2 = document.querySelector('.numbers-two').querySelector('.end');
-    let span_end3 = document.querySelector('.numbers-three').querySelector('.end');
 
     let sliderImg1 = document.querySelector('.slider-one').querySelectorAll('.slider__item').length
-    let sliderImg2 = document.querySelector('.slider-two').querySelectorAll('.slider__item').length
-    let sliderImg3 = document.querySelector('.slider-three').querySelectorAll('.slider__item').length
 
-    span_end1.textContent = sliderImg1
-    span_end2.textContent = sliderImg2
-    span_end3.textContent = sliderImg3
     let j = 1;
-    let j2 = 1;
-    let j3 = 1;
+    span_end1.textContent = sliderImg1;
     for ( let arrow = 0; arrow < arrows.length; arrow++) {
         arrows[arrow].onclick = (e) => {
             if ( e.target.classList.contains('slick-prev')) {
-                for ( let i = 0; i < span.length; i++) {
-                    if (!span[i].classList.contains('type__name') && span[i].dataset.type == 1) {
-                        j--
-                        if ( j < 1 ) {
-                            j = 1
-                        }
-                    } else if (!span[i].classList.contains('type__name') && span[i].dataset.type == 2) {
-                        j2--
-                        if ( j2 < 1 ) {
-                            j2 = 1
-                        }
-                    } else if (!span[i].classList.contains('type__name') && span[i].dataset.type == 3) {
-                        j3--
-                        if ( j3 < 1 ) {
-                            j3 = 1
-                        }
-                    }
+                j--
+                if ( j < 1 ) {
+                j = 1
                 }
             } else if ( e.target.classList.contains('slick-next')) {
-                for ( let i = 0; i < span.length; i++) {
-                    if (!span[i].classList.contains('type__name') && span[i].dataset.type == 1) {
-                        j++
-                        if ( j > span_end1.innerHTML ) {
-                            j = span_end1.innerHTML
-                        }
-                    } else if (!span[i].classList.contains('type__name') && span[i].dataset.type == 2) {
-                        j2++
-                        if ( j2 > span_end2.innerHTML ) {
-                            j2 = span_end2.innerHTML
-                        }
-                    } else if (!span[i].classList.contains('type__name') && span[i].dataset.type == 3) {
-                        j3++
-                        if ( j3 > span_end3.innerHTML ) {
-                            j3 = span_end3.innerHTML
-                        }
-                    }
+                j++
+                if ( j > span_end1.innerHTML ) {
+                    j = span_end1.innerHTML
                 }
             }
-            span_start[0].textContent = j
-            span_start[1].textContent = j2
-            span_start[2].textContent = j3
+            span_start.textContent = j;
+
         }
     }
 
+    function getCoords(elem) {
+        let box = elem.getBoundingClientRect();
+      
+        return {
+          top: box.top + pageYOffset,
+          left: box.left + pageXOffset,
+          bottom: box.bottom + pageYOffset
+        };
+    };
+    let menu_stick = document.querySelector('.menu__stick');
+    let company = document.querySelector('.company');
+    let gallery = document.querySelector('.gallery');
+    let forgingsSlider = document.querySelector('.forgingsSlider');
+    $('.menu__stick').fadeOut()
+
+    window.onscroll = () => {
+        if (getCoords(menu_stick).top >= getCoords(gallery).top && getCoords(menu_stick).bottom <= getCoords(gallery).bottom) {
+            $('.menu__stick').fadeOut(300)
+        } else if (getCoords(menu_stick).top >= getCoords(forgingsSlider).top && getCoords(menu_stick).bottom <= getCoords(forgingsSlider).bottom) {
+            $('.menu__stick').fadeOut(500)
+        } else if ( getCoords(menu_stick).top >= getCoords(company).top) {
+            $('.menu__stick').fadeIn(500)
+        } else {
+            $('.menu__stick').fadeOut(300)
+        }
+    }
 
 });
 $('.burger').click(function() {
@@ -415,7 +444,23 @@ $('.menu__link').click(function() {
     $('html').css('overflow', 'auto');
     $('.main__wrap').removeClass('hideBt')
     $('.button__main').removeClass('hideBt')
-})
+});
+                    // MENU STICK////////////////
+
+$('.menu__stick_burger').click(function() {
+    $(this).toggleClass('menu__stick_burger_active');
+    $('.menu__stick_menu').toggleClass('menu__stick_menu_active');
+    $('html').toggleClass('lock');
+    $('body').toggleClass('lock');
+    $('.slick-active').css('z-index', 1);
+    $('.slider__item').css('z-index', 1);
+});
+$('.menu__stick_link').click(function() {
+    $('.menu__stick_burger').removeClass('menu__stick_burger_active');
+    $('.menu__stick_menu').removeClass('menu__stick_menu_active');
+    $('html').removeClass('lock');
+    $('body').toggleClass('lock');
+});
 
 function addAnimate() {
     $('.header').addClass('fadeInUpBig')
@@ -429,11 +474,4 @@ window.onload = function() {
     $('.white').remove()
     addAnimate()
     $('body').css('overflow', 'auto')
-    $('.slider').get(0).slick.setPosition()
-    $('.slider-two').css('margin-top', '0')
-    $('.slider-two').css('height', 0)
-    $('.slider-two').css('overflow-y', 'hidden')
-    $('.slider-three').css('margin-top', '0')
-    $('.slider-three').css('height', 0)
-    $('.slider-three').css('overflow-y', 'hidden')
 };

@@ -1,6 +1,7 @@
 .footer
     background-color: #FFFBF3
     &__main
+        height: 359px
         font-family: Open Sans, sans-serif
         font-weight: 300
         padding-bottom: 36px
@@ -8,7 +9,8 @@
         border-bottom: 1px solid rgba(141, 106, 39, 0.26)
         display: flex
         @media screen and ( max-width: 769px)
-            justify-content: space-evenly
+            height: auto
+            justify-content: space-around
             flex-wrap: wrap
     &__logo
         margin-top: 50px
@@ -17,28 +19,25 @@
         flex-basis: 25%
         @media screen and ( max-width: 769px)
             flex-basis: 50%
-            order: -1
-        @media screen and ( max-width: 577px )
-            flex-basis: 300px
         img
             height: 53px
     &__menu
         margin-top: 62px
         display: flex
-        flex-basis: 15%
+        flex-basis: 25%
         flex-direction: column
-        @media screen and ( max-width: 769px)
-            padding-left: 20px
         a
             text-align: center
-            margin-bottom: 13px
+            margin-bottom: 30px
             text-decoration: none
+            font-size: 20px
+            letter-spacing: 0.05em
             text-transform: uppercase
             color: $colorFooter
     &__wrap
         margin-top: 36px
         display: flex
-        flex-basis: 15%
+        flex-basis: 20%
         flex-direction: column
         text-align: center
         .footer__block
@@ -47,18 +46,22 @@
             span
                 margin-top: 25px
                 text-transform: uppercase
+                font-size: 20px
                 color: $colorFooter
             .data
                 margin-top: 10px
                 text-decoration: none
+                text-transform: none
+                font-size: 16px
                 color: $colorFooter
+                &:hover
+                    color: #8d6a27
     &__cards
         text-align: center
         align-self: center
-        // margin-top: 25px
         display: flex
         flex-direction: column
-        flex-basis: 15%
+        flex-basis: 30%
         &_img
             margin-top: 10px
     .footer__button_block
@@ -71,10 +74,32 @@
     &__down
         font-family: Open Sans, sans-serif
         font-weight: 300
-        // margin: 24px 0 29px 0
         padding: 24px 0 29px 0
         display: flex
         justify-content: center
         align-items: center
         text-align: center
         color: $colorFooter
+    .footer__menu_link
+        position: relative
+        text-align: center
+        &:hover
+            color: #8d6a27
+        &::before
+            content: ''
+            position: absolute
+            display: block
+            width: 0
+            height: 0
+            left: 0
+            bottom: -7px
+            background-color: #8d6a27
+        &:hover::before
+            content: ''
+            transition: all .5s
+            margin-left: 30%
+            width: 40%
+            height: 1px
+        &:nth-child(2):hover::before
+            width: 60%
+            margin-left: 20%
