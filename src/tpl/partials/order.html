@@ -1,19 +1,43 @@
 <section id="order" class="order">
-    <h2 class="title wow fadeInUp slow">УЗНАТЬ СТОИМОСТЬ</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDown slow">
-    <div class="subtitle wow fadeInRight slow">Заполните форму и мы расчитаем для вас <br>  
-        стоимость работы</div>
-    <form action="mail.php" method="post" class="order__form wow fadeInRight slow">
-        <input name="up" value="Заказ" type="hidden">
-        <div class="inputs">
-            <input name="Имя" id="name_order" placeholder="Имя" type="text">
-            <input name="Почта" id="mail_order" placeholder="E-mail" type="text">
-            <input name="Телефон" id="phone_order" placeholder="Телефон" type="text">
-        </div>
-        <div class="submit">
-            <textarea name="Сообщение" id="message_order" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
-            <button type="submit" class="button button__order">РАСЧИТАТЬ СТОИМОСТЬ</button>
-        </div>
-        <div class="nValid"></div>
-    </form>
+  <h2 class="title wow fadeInUp slow">УЗНАТЬ СТОИМОСТЬ</h2>
+  <img
+    src="assets/img/icons/line-red.svg"
+    alt="line-red"
+    class="line wow fadeInDown slow"
+  />
+  <div class="subtitle wow fadeInRight slow">
+    Заполните форму и мы расчитаем для вас <br />
+    стоимость работы
+  </div>
+  <form
+    action="mail.php"
+    method="post"
+    class="order__form wow fadeInRight slow"
+  >
+    <input name="up" value="Заказ" type="hidden" />
+    <div class="inputs">
+      <input name="Имя" id="name_order" placeholder="Имя" type="text" />
+      <input name="Почта" id="mail_order" placeholder="E-mail" type="text" />
+      <input
+        name="Телефон"
+        id="phone_order"
+        placeholder="Телефон"
+        type="text"
+      />
+    </div>
+    <div class="submit">
+      <textarea
+        name="Сообщение"
+        id="message_order"
+        placeholder="Описание заказа"
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+      <button type="submit" class="button__nikos button__order">
+        РАСЧИТАТЬ СТОИМОСТЬ
+      </button>
+    </div>
+    <div class="nValid"></div>
+  </form>
 </section>

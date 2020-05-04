@@ -1,33 +1,51 @@
 .forgingsSlider
     position: relative
-    background: linear-gradient(180deg, rgba(255, 251, 243, 0.21) 0%, #FFFBF3 100%)
+    background-color: #FFFBF3
     .forgingsSlider__slider
+        margin: 0 55px
         position: relative
         display: flex
         justify-content: center
+        @media screen and ( max-width:  1355px)
+            margin: 0 auto
+            width: 920px
+        @media screen and ( max-width:  985px)
+            width: 510px
+        @media screen and ( max-width:  577px)
+            width: 300px
         .slick-list
-            width: 817px
             overflow: hidden
-            @media screen and ( max-width:  915px)
-                width: 529px
-            @media screen and ( max-width:  600px)
-                width: 241px
-                
         .slick-track
             overflow: hidden
             display: flex
-            justify-content: center
+            justify-content: flex-start
             flex-wrap: wrap
         .slider__item
-            margin-right: 48px
+            // margin-right: 48px
+            width: 350px
             outline: none
             height: 321px
             img
+                display: block
+                margin: auto
                 width: 240px
                 height: 288px
                 cursor: pointer
+                @media screen and ( max-width:  1355px)
+                    width: 265px
+                @media screen and ( max-width:  985px)
+                    width: 220px
+                @media screen and ( max-width:  577px)
+                    width: 254px
+        .slick-slide
+            width: 312px
+            @media screen and ( max-width:  985px)
+                width: 253px
+            @media screen and ( max-width:  577px)
+                width: 300px
         .slick-arrow
             position: absolute
+            z-index: 1001
             top: 50%
             transform: translateY(-50%)
             border: none
@@ -38,35 +56,28 @@
             outline: none
             cursor: pointer
         .slick-prev
-            left: 40px
+            left: -30px
             background: url('/assets/img/icons/arrow-left.png') center center/cover no-repeat
-            @media screen and ( max-width: 1000px)
-                left: 0
-            @media screen and ( max-width: 915px)
-                left: 30px
-            @media screen and ( max-width: 678px)
-                left: 0
-            @media screen and ( max-width:  600px)
-                left: 50px
+            @media screen and ( max-width:  1355px)
+                left: -30px
+            @media screen and ( max-width:  985px)
+                left: -25px
             @media screen and ( max-width:  440px)
                 left: 0
         .slick-next
-            right: 40px
+            right: -30px
             background: url('/assets/img/icons/arrow-right.png') center center/cover no-repeat
-            @media screen and ( max-width: 1000px)
-                right: 0
-            @media screen and ( max-width: 915px)
-                right: 30px
-            @media screen and ( max-width: 678px)
-                right: 0
-            @media screen and ( max-width:  600px)
-                right: 50px
+            @media screen and ( max-width:  1355px)
+                right: -30px
+            @media screen and ( max-width:  985px)
+                right: -25px
             @media screen and ( max-width:  440px)
                 right: 0
     .forgingsSlider__modal
         position: fixed
         top: 0
         left: 0
+        z-index: 1002
         width: 100%
         height: 100%
         background-color: rgba(0, 0, 0, .7)
@@ -75,22 +86,18 @@
         align-items: center
         &_wrap
             position: relative
+            background: url('/assets/img/icons/preloaderIMG.gif') center center/65px 65px no-repeat
+            width: 901px
+            min-height: 100px
             @media screen and ( max-width: 930px)
-                width: 700px
+                width: 90%
                 img
-                    width: 700px
-            @media screen and ( max-width: 770px)
-                width: 500px
-                img
-                    width: 500px
-            @media screen and ( max-width: 570px)
-                width: 300px
-                img
-                    width: 300px
+                    width: 100%
             span
                 position: absolute
                 top: -35px
-                right: -35px
+                left: 50%
+                transform: translateX(-50%)
                 width: 30px
                 height: 30px
                 cursor: pointer

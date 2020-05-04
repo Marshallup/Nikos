@@ -1,5 +1,7 @@
 .gallery
     background: linear-gradient(180deg, rgba(255, 251, 243, 0.21) 0%, #FFFBF3 100%)
+    max-width: 2000px
+    margin: 0 auto
     .types
         display: flex
         justify-content: center
@@ -30,7 +32,7 @@
                     height: 1px
                     left: 0
                     bottom: -10px
-                    background-color:  #8d6a27
+                    background-color: #8d6a27
     .active__type
         &::before
             content: ''
@@ -41,14 +43,13 @@
             height: 1px
             left: 0
             bottom: -10px
-            background-color:  #8d6a27
+            background-color: #8d6a27
     .slider
         position: relative
         margin-top: 38px
     .slick-list
         overflow: hidden
     .slick-track
-        // width: 100vw
         display: flex
         justify-content: center
     .slider__item
@@ -57,22 +58,15 @@
         outline: none
         img
             width: 100vw
-            height: 600px
-            @media screen and ( max-width: 800px )
-                height: 400px
-            @media screen and ( max-width: 565px )
-                height: 300px
-            @media screen and ( max-width: 425px )
-                height: 200px
     .slick-slide
         &::after
-           content: ''
-           position: absolute
-           top: 0
-           left: 0
-           height: 100%
-           width: 100%
-           background-color: rgba(0, 0, 0,.25 ) 
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            background-color: rgba(0, 0, 0,.25 )
     .slick-arrow
         position: absolute
         z-index: 10010000

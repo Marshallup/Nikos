@@ -1,4 +1,4 @@
-.button
+.button__nikos
     position: relative
     font-weight: 300
     display: block
@@ -34,6 +34,7 @@
     &:hover::before
         top: 0
         right: 0
+.button
     &__callus
         &::after
             @media screen and ( max-width: 769px)
@@ -126,4 +127,27 @@
                 width: 204px 
         @media screen and ( max-width: 839px)
             width: 204px
-            
+    &__stick
+        position: relative
+        z-index: -1
+        margin-right: 20px
+        width: 154.1px
+        height: 39.22px
+        font-size: 13px
+        line-height: 15px
+        letter-spacing: 0.05em
+        text-transform: uppercase
+        &::before,
+        &::after
+            width: 154px
+            height: 39.22px
+        &::before
+            top: -2px
+            left: -1px
+        &::after
+            top: 3px
+            left: 4px
+        &:hover::after,
+        &:hover::before
+            left: 0
+            top: 0

@@ -17,6 +17,8 @@
         display: flex
         justify-content: center
         flex-basis: 25%
+        @media screen and ( max-width: 800px)
+            flex-basis: 20%
         @media screen and ( max-width: 769px)
             flex-basis: 50%
         img
@@ -26,6 +28,8 @@
         display: flex
         flex-basis: 25%
         flex-direction: column
+        @media screen and ( max-width: 800px)
+            flex-basis: 30%
         a
             text-align: center
             margin-bottom: 30px
@@ -34,6 +38,12 @@
             letter-spacing: 0.05em
             text-transform: uppercase
             color: $colorFooter
+            @media screen and ( max-width: 769px)
+                &:last-child
+                    margin-bottom: 0
+        @media screen and ( max-width: 769px)
+            margin-top: 50px
+            flex-basis: 100%
     &__wrap
         margin-top: 36px
         display: flex
@@ -56,12 +66,23 @@
                 color: $colorFooter
                 &:hover
                     color: #8d6a27
+                &_adress
+                    cursor: default
+        @media screen and ( max-width: 769px)
+            margin-top: 25px
+            flex-basis: 100%
+        @media screen and ( max-width: 567px)
+            margin-top: 30px
     &__cards
         text-align: center
         align-self: center
         display: flex
         flex-direction: column
         flex-basis: 30%
+        @media screen and ( max-width: 769px)
+            margin-top: 40px
+        @media screen and ( max-width: 567px)
+            margin-top: 20px
         &_img
             margin-top: 10px
     .footer__button_block
@@ -100,6 +121,27 @@
             margin-left: 30%
             width: 40%
             height: 1px
+            @media screen and ( max-width: 769px)
+                margin-left: 40%
+                width: 20%
+            @media screen and ( max-width: 567px)
+                width: 40%
+                margin-left: 30%
         &:nth-child(2):hover::before
             width: 60%
             margin-left: 20%
+            @media screen and ( max-width: 769px)
+                width: 30%
+                margin-left: 35%
+            @media screen and ( max-width: 567px)
+                width: 65%
+                margin-left: 18%
+        &:last-child:hover::before
+            width: 30%
+            margin-left: 35%
+            @media screen and ( max-width: 769px)
+                width: 20%
+                margin-left: 40%
+            @media screen and ( max-width: 567px)
+                width: 35%
+                margin-left: 32%

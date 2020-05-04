@@ -106,7 +106,7 @@
             height: 1px
             left: 0
             bottom: -7px
-            background-color:  white
+            background-color: white
         .active_menu
             transition: top .5s linear
             display: flex
@@ -150,17 +150,17 @@
         font-weight: 500
         animation-delay: 3s
     &__points
+        margin: 0 auto
         margin-top: 200px
         display: flex
-        justify-content: center
+        justify-content: space-between
+        width: 120px
         .point
             width: 16px
             height: 6px
             background: url('/assets/img/icons/main_point.svg') center center/cover no-repeat
             &:nth-child(1)
                 background: url('/assets/img/icons/main_point-fill.svg') center center/cover no-repeat
-            &:nth-child(2)
-                margin: 0 18px
     &__line
         z-index: -1
         animation-delay: 3.5s
@@ -182,11 +182,9 @@
             top: 10px
 .fullBackground
     z-index: -1
-    // background: url('/assets/img/bg-main.jpg')
     transition: 5s
     background-position: center center
     background-repeat: no-repeat
-    // background-attachment: fixed
     background-size: cover
     background-size: cover
     position: absolute
@@ -207,27 +205,35 @@
     position: fixed
     top: 0
     width: 100%
+    height: 81px
     left: 50%
     z-index: 100000
     transform: translateX(-50%)
     border-bottom: 1px solid rgba(141, 106, 39, 0.15)
     background: #FFFCF6
-    padding: 15px 35px
+    padding: 0 35px
     display: flex
     justify-content: space-between
     align-items: center
     color: #8D6A27
     text-transform: uppercase
-    @media screen and ( max-width:  940px)
-        &_phone
-            margin-left: auto
+    font-weight: 300
+    font-size: 14px
     @media screen and ( max-width:  577px)
-        padding: 7px 15px
+        padding: 0 15px
+        height: 70px
+        &_phone
+            display: none
+    &_wrap
+        display: flex
+        align-items: center
+        @media screen and ( max-width:  1050px)
+            margin-left: auto
     &_burger
         display: none
         position: relative
         z-index: 1000001
-        @media screen and ( max-width:  940px)
+        @media screen and ( max-width:  1050px)
             position: relative
             display: block
             margin-left: 20px
@@ -272,12 +278,56 @@
                     left: 12px
     @media screen and ( min-width:  1600px)
         padding: 15px 15%
+    &_logo
+        cursor: default
     &_menu
-        flex-basis: 520px
+        flex-basis: 560px
         display: flex
         justify-content: space-between
         transition: all .5s linear
-        @media screen and ( max-width:  940px)
+        a:hover
+            animation-name: vibrate-fast
+            animation-duration: 1s
+            animation-timing-function: ease
+            animation-delay: 0s
+            animation-iteration-count: 1
+            animation-direction: normal
+            animation-fill-mode: none
+            @keyframes vibrate-fast
+                0%
+                    -webkit-transform: translate(0)
+                    transform: translate(0)
+                10%
+                    -webkit-transform: translate(-2px,-2px)
+                    transform: translate(-2px,-2px)
+                20%
+                    -webkit-transform: translate(2px,-2px)
+                    transform: translate(2px,-2px)
+                30%
+                    -webkit-transform: translate(-2px,2px)
+                    transform: translate(-2px,2px)
+                40%
+                    -webkit-transform: translate(2px,2px)
+                    transform: translate(2px,2px)
+                50%
+                    -webkit-transform: translate(-2px,-2px)
+                    transform: translate(-2px,-2px)
+                60%
+                    -webkit-transform: translate(2px,-2px)
+                    transform: translate(2px,-2px)
+                70%
+                    -webkit-transform: translate(-2px,2px)
+                    transform: translate(-2px,2px)
+                80%
+                    -webkit-transform: translate(-2px,-2px)
+                    transform: translate(-2px,-2px)
+                90%
+                    -webkit-transform: translate(2px,-2px)
+                    transform: translate(2px,-2px)
+                100%
+                    -webkit-transform: translate(0)
+                    transform: translate(0)
+        @media screen and ( max-width:  1050px)
             position: fixed
             right: -120vw
             flex-direction: column
@@ -296,3 +346,4 @@
         color: #8D6A27
         text-transform: uppercase
         text-decoration: none
+        letter-spacing: 1px

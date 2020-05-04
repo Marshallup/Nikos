@@ -14,52 +14,72 @@
     <script>
         new WOW().init()
     </script>
+    <!--[if IE 11]><html class="ie"><![endif]-->
     <title>HomePage</title>
 </head><body>
 <div class="white"></div>
 
 <section class="main">
-    <div class="fullBackground"></div>
-    <div class="container">
-        <header class="header wow slow">
-            <img src="assets/img/icons/logo.png" alt="logo" class="logo wow slow">
-            <div class="burger wow slow"><span></span></div>
-            <nav class="menu">
-                <a href="#company" class="menu__link">компания</a>
-                <a href="#order" class="menu__link">Оформить заказ</a>
-                <a href="#gallery" class="menu__link">Ограждения</a>
-                <a href="#forgings" class="menu__link">Поковки</a>
-            </nav>
-            <div class="main__menu_wrap">
-                <button class="button button__main_menu">Заказать звонок</button>
-                <a href="tel:+79130117599" class="phone wow slow">8 (913) 011-75-99</a>
-            </div>
-        </header>
-        <div class="menu__stick">
-            <div class="menu__stick_logo">Никас</div>
-            <nav class="menu__stick_menu">
-                <a href="#company" class="menu__stick_link">компания</a>
-                <a href="#order" class="menu__stick_link">Оформить заказ</a>
-                <a href="#gallery" class="menu__stick_link">Ограждения</a>
-                <a href="#forgings" class="menu__stick_link">Поковки</a>
-            </nav>
-            <a href="tel:+79130117599" class="menu__stick_phone">8 (913) 011-75-99</a>
-            <div class="menu__stick_burger"><span></span></div>
-        </div>
-        <div class="main__wrap">
-            <h1 class="main__title wow slow">Кованные изделия</h1>
-            <h2 class="main__subtitle wow slow">Обогащайте свой интерьер с помощью  уникальных <br>
-                изделий художесвтенной ковки</h2>
-            <img src="assets/img/icons/line.svg" alt="line" class="line main__line wow slow">
-        </div>
-        <button class="button button__main wow slow">РАСЧИТАТЬ СТОИМОСТЬ</button>
-        <div class="main__points">
-            <div class="point"></div>
-            <div class="point"></div>
-            <div class="point"></div>
-        </div>
+  <div class="fullBackground"></div>
+  <div class="container">
+    <header class="header wow slow">
+      <img src="assets/img/icons/logo.png" alt="logo" class="logo wow slow" />
+      <div class="burger wow slow"><span></span></div>
+      <nav class="menu">
+        <a href="#company" class="menu__link">компания</a>
+        <a href="#order" class="menu__link">Оформить заказ</a>
+        <a href="#gallery" class="menu__link">Ограждения</a>
+        <a href="#forgings" class="menu__link">Поковки</a>
+      </nav>
+      <div class="main__menu_wrap">
+        <button class="button__nikos button__main_menu">
+          Заказать звонок
+        </button>
+        <a href="tel:+79130117599" class="phone wow slow">8 (913) 011-75-99</a>
+      </div>
+    </header>
+    <div class="menu__stick">
+      <div class="menu__stick_logo">Никас</div>
+      <nav class="menu__stick_menu">
+        <a href="#company" class="menu__stick_link">компания</a>
+        <a href="#order" class="menu__stick_link">Оформить заказ</a>
+        <a href="#gallery" class="menu__stick_link">Ограждения</a>
+        <a href="#forgings" class="menu__stick_link">Поковки</a>
+      </nav>
+      <div class="menu__stick_wrap">
+        <button class="button__nikos button__stick">
+          Заказать звонок
+        </button>
+        <a href="tel:+79130117599" class="menu__stick_phone"
+          >8 (913) 011-75-99</a
+        >
+      </div>
+      <div class="menu__stick_burger"><span></span></div>
     </div>
-</section><section id="company" class="company">
+    <div class="main__wrap">
+      <h1 class="main__title wow slow">Кованные изделия</h1>
+      <h2 class="main__subtitle wow slow">
+        Обогащайте свой интерьер с помощью уникальных <br />
+        изделий художесвтенной ковки
+      </h2>
+      <img
+        src="assets/img/icons/line.svg"
+        alt="line"
+        class="line main__line wow slow"
+      />
+    </div>
+    <button class="button__nikos button__main wow slow">
+      РАСЧИТАТЬ СТОИМОСТЬ
+    </button>
+    <div class="main__points">
+      <div class="point"></div>
+      <div class="point"></div>
+      <div class="point"></div>
+      <div class="point"></div>
+    </div>
+  </div>
+</section>
+<section id="company" class="company">
     <div class="container">
         <h2 style="z-index: -1;" class="title wow fadeInLeft slow">компания</h2>
         <img style="z-index: -1;" src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInRight slow">
@@ -71,26 +91,49 @@
         </div>
     </div>
     <h2 id="gallery" class="title wow fadeInUp slow">Каталог Ограждений</h2>
-</section><section class="gallery">
-    <div id="gallery_cont" class="container">
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUp slow">
-        <div id="slider_one" data-type="1" class="slider slider-one wow fadeInUp slow">
-            <div class="slider__item"><img src="assets/img/slider/fences/fence1.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence2.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence3.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence4.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence5.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence6.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence7.jpg" alt=""></div>
-            <div class="slider__item"><img src="assets/img/slider/fences/fence8.jpg" alt=""></div>
-        </div>
-        <div class="numbers numbers-one">
-            <span class="start">1</span>
-                /
-            <span class="end">3</span>
-        </div>
+</section><section id="gallery_cont" class="gallery">
+  <img
+    src="assets/img/icons/line-red.svg"
+    alt="line-red"
+    class="line wow fadeInUp slow"
+  />
+  <div
+    id="slider_one"
+    data-type="1"
+    class="slider slider-one wow fadeInUp slow"
+  >
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence1.jpg" alt="" />
     </div>
-</section><section class="howOrder">
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence2.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence3.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence4.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence5.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence6.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence7.jpg" alt="" />
+    </div>
+    <div class="slider__item">
+      <img src="assets/img/slider/fences/fence8.jpg" alt="" />
+    </div>
+  </div>
+  <div class="numbers numbers-one">
+    <span class="start">1</span>
+    /
+    <span class="end">3</span>
+  </div>
+</section>
+<section class="howOrder">
     <div class="container">
         <h2 class="title wow fadeInUp slow">Как заказать</h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUp slow">
@@ -125,59 +168,130 @@
         </div>
     </div>
 </section><section id="order" class="order">
-    <h2 class="title wow fadeInUp slow">УЗНАТЬ СТОИМОСТЬ</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDown slow">
-    <div class="subtitle wow fadeInRight slow">Заполните форму и мы расчитаем для вас <br>  
-        стоимость работы</div>
-    <form action="mail.php" method="post" class="order__form wow fadeInRight slow">
-        <input name="up" value="Заказ" type="hidden">
-        <div class="inputs">
-            <input name="Имя" id="name_order" placeholder="Имя" type="text">
-            <input name="Почта" id="mail_order" placeholder="E-mail" type="text">
-            <input name="Телефон" id="phone_order" placeholder="Телефон" type="text">
-        </div>
-        <div class="submit">
-            <textarea name="Сообщение" id="message_order" placeholder="Описание заказа" id="" cols="30" rows="10"></textarea>
-            <button type="submit" class="button button__order">РАСЧИТАТЬ СТОИМОСТЬ</button>
-        </div>
-        <div class="nValid"></div>
-    </form>
-</section><section class="forgingsSlider">
-    <div id="forgings" class="container">
-        <h2 class="title">Комплектующие “Поковки”</h2>
-        <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInUp slow">
-        <div class="forgingsSlider__slider">
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka0.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka1.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka2.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka3.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka4.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka5.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka6.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka7.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka8.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka9.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka10.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka11.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka12.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka13.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka14.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka15.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka16.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka17.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka18.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka19.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka20.jpg" alt="" ></div>
-            <div class="slider__item"><img src="assets/img/slider/pakovkes/pakovka0.jpg" alt="" ></div>
-        </div>
-        <div class="forgingsSlider__modal">
-            <div class="forgingsSlider__modal_wrap">
-                <span></span>
-                <img class="forgingsSlider__img" src="" alt="">
-            </div>
-        </div>
+  <h2 class="title wow fadeInUp slow">УЗНАТЬ СТОИМОСТЬ</h2>
+  <img
+    src="assets/img/icons/line-red.svg"
+    alt="line-red"
+    class="line wow fadeInDown slow"
+  />
+  <div class="subtitle wow fadeInRight slow">
+    Заполните форму и мы расчитаем для вас <br />
+    стоимость работы
+  </div>
+  <form
+    action="mail.php"
+    method="post"
+    class="order__form wow fadeInRight slow"
+  >
+    <input name="up" value="Заказ" type="hidden" />
+    <div class="inputs">
+      <input name="Имя" id="name_order" placeholder="Имя" type="text" />
+      <input name="Почта" id="mail_order" placeholder="E-mail" type="text" />
+      <input
+        name="Телефон"
+        id="phone_order"
+        placeholder="Телефон"
+        type="text"
+      />
     </div>
-</section><section class="video">
+    <div class="submit">
+      <textarea
+        name="Сообщение"
+        id="message_order"
+        placeholder="Описание заказа"
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+      <button type="submit" class="button__nikos button__order">
+        РАСЧИТАТЬ СТОИМОСТЬ
+      </button>
+    </div>
+    <div class="nValid"></div>
+  </form>
+</section>
+<section class="forgingsSlider">
+  <div id="forgings" class="container">
+    <h2 class="title">Комплектующие “Поковки”</h2>
+    <img
+      src="assets/img/icons/line-red.svg"
+      alt="line-red"
+      class="line wow fadeInUp slow"
+    />
+    <div class="forgingsSlider__slider">
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka0.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka1.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka2.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka3.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka4.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka5.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka6.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka7.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka8.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka9.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka10.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka11.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka12.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka13.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka14.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka15.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka16.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka17.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka18.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka19.jpg" alt="" />
+      </div>
+      <div class="slider__item">
+        <img src="assets/img/slider/pakovkes/pakovka20.jpg" alt="" />
+      </div>
+    </div>
+    <div class="forgingsSlider__modal">
+      <div class="forgingsSlider__modal_wrap">
+        <span></span>
+        <img class="forgingsSlider__img" src="" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="video">
     <h2 class="title wow fadeInUpBig slow">Процесс изготовления листика</h2>
         <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDownBig slow">
         <div class="video__block wow jackInTheBox"><iframe width="560" height="315" src="https://www.youtube.com/embed/Gbz6OYqlyYk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -186,50 +300,75 @@
     <h2 class="title decor__title">КОВАНЫЕ ИЗДЕЛИЯ — СТИЛЬ И БЛАГОРОДСТВО, <br>
         НЕПОДВЛАСТНЫЕ ВРЕМЕНИ.</h2>
 </section><section id="callus" class="callus">
-    <h2 class="title callus__title wow fadeInUp">Возникли вопросы?</h2>
-    <img src="assets/img/icons/line-red.svg" alt="line-red" class="line wow fadeInDown">
-    <div class="subtitle callus__subtitle wow rotateInUpRight">
-        Остались вопросы? Звоните нам прямо сейчас или закажите <br> 
-        обратный звонок
-    </div>
-    <form class="callus__form wow flipInY" name="callus" method="post">
-        <input name="up" value="Позвонить" type="hidden">
-        <input name="Имя" id="name_callus" placeholder="Имя" type="text">
-        <input name="Телефон" id="phone_callus" placeholder="Телефон" type="text">
-        <button class="button button__callus">Заказать звонок</button>
-        <div class="nValidCall"></div>
-    </form>
-</section><section class="footer">
-    <div class="container">
-        <div class="footer__main wow fadeInLeft slow">
-            <div class="footer__logo">
-                <img src="assets/img/icons/footer/footer__logo.png" alt="logo">
-            </div>
-            <nav class="footer__menu">
-                <a href="#company" class="footer__menu_link">компания</a>
-                <a href="#order" class="footer__menu_link">оформить заказ</a>
-                <a href="#gallery" class="footer__menu_link">Ограждения</a>
-                <a href="#forgings" class="footer__menu_link">Поковки</a>
-            </nav>
-            <div class="footer__wrap">
-                <div class="footer__block"><span>Телефон</span><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a></div>
-                <div class="footer__block"><span>E-mail</span><a class="data" href="mailto:71083@list.ru">71083@list.ru.</a></div>
-                <div class="footer__block"><span>Адрес</span><span class="data">г. Новосибирск, <br>
-                    улица Кирова 46</span></div>
-            </div>
-            <div class="footer__cards">
-                <div class="footer__cards_img"><img src="assets/img/icons/footer/paypal.png" alt="paypal"></div>
-                <div class="footer__cards_img"><img src="assets/img/icons/footer/visa.png" alt="visa"></div>
-                <div class="footer__cards_img"><img src="assets/img/icons/footer/mscard.png" alt="mscard"></div>
-                <div class="footer__cards_img"><img src="assets/img/icons/footer/mir.png" alt="mir"></div>
-            </div>
+  <h2 class="title callus__title wow fadeInUp">Возникли вопросы?</h2>
+  <img
+    src="assets/img/icons/line-red.svg"
+    alt="line-red"
+    class="line wow fadeInDown"
+  />
+  <div class="subtitle callus__subtitle wow rotateInUpRight">
+    Звоните нам прямо сейчас или закажите <br />
+    обратный звонок
+  </div>
+  <form class="callus__form wow flipInY" name="callus" method="post">
+    <input name="up" value="Позвонить" type="hidden" />
+    <input name="Имя" id="name_callus" placeholder="Имя" type="text" />
+    <input name="Телефон" id="phone_callus" placeholder="Телефон" type="text" />
+    <button class="button__nikos button__callus">Заказать звонок</button>
+    <div class="nValidCall"></div>
+  </form>
+</section>
+<section class="footer">
+  <div class="container">
+    <div class="footer__main wow fadeInLeft slow">
+      <div class="footer__logo">
+        <img src="assets/img/icons/footer/footer__logo.png" alt="logo" />
+      </div>
+      <nav class="footer__menu">
+        <a href="#company" class="footer__menu_link">компания</a>
+        <a href="#order" class="footer__menu_link">оформить заказ</a>
+        <a href="#gallery" class="footer__menu_link">Ограждения</a>
+        <a href="#forgings" class="footer__menu_link">Поковки</a>
+      </nav>
+      <div class="footer__wrap">
+        <div class="footer__block">
+          <span>Телефон</span
+          ><a class="data" href="tel:+79130117599">8 (913) 011-75-99</a>
         </div>
-        <div class="footer__down wow fadeInRight slow">
-            2020 © Никас <br>
-            Все права защищены
+        <div class="footer__block">
+          <span>E-mail</span
+          ><a class="data" href="mailto:71083@list.ru">71083@list.ru.</a>
         </div>
+        <div class="footer__block">
+          <span>Адрес</span
+          ><span class="data data_adress"
+            >г. Новосибирск, <br />
+            улица Кирова 46</span
+          >
+        </div>
+      </div>
+      <div class="footer__cards">
+        <div class="footer__cards_img">
+          <img src="assets/img/icons/footer/paypal.png" alt="paypal" />
+        </div>
+        <div class="footer__cards_img">
+          <img src="assets/img/icons/footer/visa.png" alt="visa" />
+        </div>
+        <div class="footer__cards_img">
+          <img src="assets/img/icons/footer/mscard.png" alt="mscard" />
+        </div>
+        <div class="footer__cards_img">
+          <img src="assets/img/icons/footer/mir.png" alt="mir" />
+        </div>
+      </div>
     </div>
-</section><div class="befSendMes">
+    <div class="footer__down wow fadeInRight slow">
+      2020 © Никас <br />
+      Все права защищены
+    </div>
+  </div>
+</section>
+<div class="befSendMes">
     <div class="befSendDiv">
         <div>
             Мы свяжемся с Вами в ближайшее время!
