@@ -4,6 +4,8 @@
     padding: 0 0 46px 0
     height: 800px
     z-index: 2
+    @media screen and ( min-width:  1900px)
+        height: 1000px
     .burger
         display: none
         transition: all 1s linear
@@ -149,18 +151,6 @@
         letter-spacing: 1.3px
         font-weight: 500
         animation-delay: 3s
-    &__points
-        margin: 0 auto
-        margin-top: 200px
-        display: flex
-        justify-content: space-between
-        width: 120px
-        .point
-            width: 16px
-            height: 6px
-            background: url('/assets/img/icons/main_point.svg') center center/cover no-repeat
-            &:nth-child(1)
-                background: url('/assets/img/icons/main_point-fill.svg') center center/cover no-repeat
     &__line
         z-index: -1
         animation-delay: 3.5s
@@ -190,17 +180,59 @@
     position: absolute
     top: 0
     left: 0
-    width: 100%
+    width: 100vw
     height: 100%
-    &::before
-        content: ''
+    .slider
+        position: relative
+        margin-top: 38px
+    .slick-list
+        overflow: hidden
+    .slick-track
+        display: flex
+        justify-content: center
+    .fullBackground__slide
+        display: flex
+        justify-content: center
+        outline: none
+        img
+            width: 100vw
+            height: 800px
+            @media screen and ( min-width:  1900px)
+                height: 1000px
+            @media screen and ( max-width: 1050px)
+                width: auto
+            @media screen and ( max-width: 577px)
+                height: 635px   
+    .slick-slide
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            background-color: rgba(0, 0, 0,.48 )
+    .slick-dots
+        z-index: 1001
         position: absolute
-        z-index: 1
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        background-color: rgba(0, 0, 0, .48)
+        bottom: 30px
+        left: 50%
+        transform: translateX(-50%)
+        display: flex
+        @media screen and ( max-width: 577px)
+            bottom: 15px
+        li
+            list-style: none
+            margin: 0 10px
+        button
+            border: none
+            background: url('/assets/img/icons/main_point.svg') center center/100% no-repeat
+            width: 16px
+            height: 30px
+            font-size: 0
+            cursor: pointer
+        .slick-active
+            background: url('/assets/img/icons/main_point-fill.svg') center center/100% no-repeat
 .menu__stick
     position: fixed
     top: 0
@@ -225,6 +257,8 @@
         &_phone
             display: none
     &_wrap
+        position: relative
+        z-index: -1
         display: flex
         align-items: center
         @media screen and ( max-width:  1050px)

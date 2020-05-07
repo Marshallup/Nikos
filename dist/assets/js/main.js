@@ -1,151 +1,23 @@
 "use strict";
 
-!function (i) {
-  i.fn.fullClip = function (n) {
-    var s,
-        t,
-        e = i.extend({
-      current: 0,
-      images: [],
-      transitionTime: 1e3,
-      wait: 3e3,
-      "static": !1
-    }, n);
-
-    for (s = 0, t = e.images.length; s < t; ++s) {
-      new Image().src = e.images[s];
-    }
-
-    return i(".fullBackground").css("background-image", "url(" + e.images[e.current] + ")").css("-webkit-transition", "background " + e.transitionTime + "s ease-in-out").css("-moz-transition", "background " + e.transitionTime + "ms ease-in-out").css("-ms-transition", "background " + e.transitionTime + "ms ease-in-out").css("-o-transition", "background " + e.transitionTime + "ms ease-in-out").css("transition", "background " + e.transitionTime + "ms ease-in-out"), e["static"] ? void i(this).css("background-image", "url(" + e.images[e.current] + ")") : void function n() {
-      e.current = (e.current + 1) % e.images.length, i(".fullBackground").css("background-image", "url(" + e.images[e.current] + ")"), setTimeout(n, e.wait);
-    }();
-  };
-}(jQuery);
-var currentImageIndex = -1;
-var imageIds = new Array();
-var fadeSpeed; //Sizing constants. these determine the value of the CSS property 'background-size' of the selected container
-
-var SCALING_MODE_NONE = 0; //Uses the original image size
-
-var SCALING_MODE_STRETCH = 1; //Sets 'background-size' to '100% 100%'. This stretches the background image to fill the container, discarding the images aspect ratio.
-
-var SCALING_MODE_COVER = 2; //Sets 'background-size' to 'cover'. This makes the background images fill the entire container while retaining its aspect ratio.
-
-var SCALING_MODE_CONTAIN = 3; //Sets 'background-size' to 'contain'. This scales the bakcground image to the largest size such that both its width and its height can fit inside the content area
-
-/**
- * Adds a cycling (fading) background to the selected element
- * @param {Object} options Options for tweaking the cycle setings.
- * imageUrls: an array of strings representing urls to the images to cycle through
- * duration: the nr of miliseconds between two fades.
- * fadeSpeed: the nr of miliseconds it takes for one image to fade out to another.
- * backgroundSize: specify a value for the css3 property 'background size' or one of the following constants; SCALING_MODE_NONE, SCALING_MODE_STRETCH, SCALING_MODE_COVER, SCALING_MODE_CONTAIN
- */
-
-$.fn.backgroundCycle = function (options) {
-  var settings = $.extend({
-    imageUrls: [],
-    duration: 5000,
-    fadeSpeed: 1000,
-    backgroundSize: SCALING_MODE_NONE
-  }, options);
-  fadeSpeed = settings.fadeSpeed;
-  var marginTop = this.css("margin-top");
-  var marginRight = this.css("margin-right");
-  var marginBottom = this.css("margin-bottom");
-  var marginLeft = this.css("margin-left");
-
-  if (!this.is("body")) {
-    this.css({
-      position: "absolute"
-    });
-  }
-
-  var contents = $(document.createElement("div"));
-  var children = this.children().detach();
-  contents.append(children);
-  imageIds = new Array();
-
-  for (var i = 0; i < settings.imageUrls.length; i++) {
-    var id = "bgImage" + i;
-    var src = settings.imageUrls[i];
-    var cssClass = "cycle-bg-image";
-    var image = $(document.createElement("div"));
-    image.attr("id", id);
-    image.attr("class", cssClass);
-    var sizeMode;
-
-    switch (settings.backgroundSize) {
-      default:
-        sizeMode = settings.backgroundSize;
-        break;
-
-      case SCALING_MODE_NONE:
-        sizeMode = "auto";
-        break;
-
-      case SCALING_MODE_STRETCH:
-        sizeMode = "100% 100%";
-        break;
-
-      case SCALING_MODE_COVER:
-        sizeMode = "cover";
-        break;
-
-      case SCALING_MODE_CONTAIN:
-        sizeMode = "contain";
-        break;
-    }
-
-    image.css({
-      "background-image": "url('" + src + "')",
-      "background-repeat": "no-repeat",
-      "background-size": sizeMode,
-      "-moz-background-size": sizeMode,
-      "-webkit-background-size": sizeMode,
-      position: "absolute",
-      left: marginLeft,
-      top: marginTop,
-      right: marginRight,
-      bottom: marginBottom
-    });
-    this.append(image);
-    imageIds.push(id);
-  }
-
-  contents.css({
-    position: "absolute",
-    left: marginLeft,
-    top: marginTop,
-    right: marginRight,
-    bottom: marginBottom
-  });
-  this.append(contents);
-  $(".cycle-bg-image").hide();
-  $("#" + imageIds[0]).show();
-  setInterval(cycleToNextImage, settings.duration);
-};
-
-function cycleToNextImage() {
-  var previousImageId = imageIds[currentImageIndex];
-  currentImageIndex++;
-
-  if (currentImageIndex >= imageIds.length) {
-    currentImageIndex = 0;
-  }
-
-  var options = {
-    duration: fadeSpeed,
-    queue: false
-  };
-  $("#" + previousImageId).fadeOut(options);
-  $("#" + imageIds[currentImageIndex]).fadeIn(options);
-}
-
 $(document).ready(function () {
+  // Сладер главного экрана
+  $(".fullBackground").slick({
+    arrows: false,
+    dots: true,
+    fade: true,
+    autoplay: true,
+    pauseOnDotsHover: false,
+    pauseOnFocus: false,
+    speed: 2000,
+    autoplaySpeed: 2500,
+    cssEase: 'ease'
+  }); // Слайдер Каталога
+
   $(".slider").slick({
     fade: true,
     waitForAnimate: false,
+    centerMode: true,
     zIndex: 100,
     infinite: false,
     draggable: false,
@@ -153,12 +25,12 @@ $(document).ready(function () {
     responsive: [{
       breakpoint: 577,
       settings: {
-        arrows: false,
         draggable: true,
         swipe: true
       }
     }]
-  });
+  }); // Слайдер каталога поковки
+
   $(".forgingsSlider__slider").slick({
     variableWidth: true,
     infinite: false,
@@ -178,7 +50,6 @@ $(document).ready(function () {
     }, {
       breakpoint: 577,
       settings: {
-        arrows: false,
         slidesToShow: 1,
         slidesPerRow: 1,
         variableWidth: true
@@ -186,7 +57,6 @@ $(document).ready(function () {
     }, {
       breakpoint: 350,
       settings: {
-        arrows: false,
         slidesToShow: 1
       }
     }]
@@ -199,9 +69,8 @@ $(document).ready(function () {
   function setAttributeIMg() {
     var number = 0;
 
-    for (var _i = 0; _i < img.length; _i++) {
-      img[_i].setAttribute("data-img", "assets/img/slider/pakovka".concat(number, ".jpg"));
-
+    for (var i = 0; i < img.length; i++) {
+      img[i].setAttribute("data-img", "assets/img/slider/pakovka".concat(number, ".jpg"));
       number++;
     }
   }
@@ -225,15 +94,9 @@ $(document).ready(function () {
   forgingsModal.onclick = function () {
     this.style.display = "none";
     $("html").css("overflow", "auto");
-  }; // СМЕНА ФОНА ДЛЯ ГЛАВНОГО ЭКРАНА
+  }; // Макси форм
 
 
-  $(".fullBackground").backgroundCycle({
-    imageUrls: ["assets/img/bg-main4.jpg", "assets/img/bg-main1.jpg", "assets/img/bg-main2.jpg", "assets/img/bg-main3.jpg"],
-    fadeSpeed: 2000,
-    duration: 5000,
-    backgroundSize: SCALING_MODE_COVER
-  });
   $("#phone_order").inputmask({
     mask: "+ 7(999) 999-9999"
   });
@@ -330,21 +193,7 @@ $(document).ready(function () {
       }, 500);
     });
     return false;
-  });
-  var points = document.querySelectorAll(".point");
-  var i = 1;
-  setInterval(function () {
-    for (var _j = 0; _j < points.length; _j++) {
-      points[_j].style.background = "url('/assets/img/icons/main_point.svg')";
-    }
-
-    points[i].style.background = "url('/assets/img/icons/main_point-fill.svg')";
-    i++;
-
-    if (i >= 4) {
-      i = 0;
-    }
-  }, 5000); /// ANCHOR LINKS -----------------
+  }); /// ANCHOR LINKS -----------------
 
   $(".menu").on("click", "a", function (event) {
     event.preventDefault();
@@ -488,16 +337,20 @@ $(".menu__link").click(function () {
 $(".menu__stick_burger").click(function () {
   $(this).toggleClass("menu__stick_burger_active");
   $(".menu__stick_menu").toggleClass("menu__stick_menu_active");
-  $("html").toggleClass("lock");
-  $("body").toggleClass("lock");
+
+  if ($("html").css("overflow") == "hidden") {
+    $("html").css("overflow", "auto");
+  } else {
+    $("html").css("overflow", "hidden");
+  }
+
   $(".slick-active").css("z-index", 1);
   $(".slider__item").css("z-index", 1);
 });
 $(".menu__stick_link").click(function () {
   $(".menu__stick_burger").removeClass("menu__stick_burger_active");
   $(".menu__stick_menu").removeClass("menu__stick_menu_active");
-  $("html").removeClass("lock");
-  $("body").toggleClass("lock");
+  $("html").css("overflow", "auto");
 });
 
 function addAnimate() {
